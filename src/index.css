@@ -1,0 +1,175 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg-canvas: #F7F7F5;
+    --bg-surface: #FFFFFF;
+    --bg-surface-elevated: #EFEFEB;
+    --text-primary: #111111;
+    --text-secondary: #6B6B67;
+    --text-muted: #8E8E89;
+    --border-line: #DCDCD7;
+    --border-subtle: #E8E8E3;
+    --accent: #0284C7;
+    --accent-glow: rgba(2, 132, 199, 0.15);
+
+    /* Spatial Depth Surfaces */
+    --depth-0: #F7F7F5;
+    --depth-1: rgba(255, 255, 255, 0.85);
+    --depth-2: rgba(255, 255, 255, 0.92);
+    --depth-3: rgba(255, 255, 255, 0.98);
+  }
+
+  .dark {
+    --bg-canvas: #0D0D0D;
+    --bg-surface: #141414;
+    --bg-surface-elevated: #1E1E1E;
+    --text-primary: #F3F3EF;
+    --text-secondary: #92928D;
+    --text-muted: #666663;
+    --border-line: #292929;
+    --border-subtle: #1F1F1F;
+    --accent: #38BDF8;
+    --accent-glow: rgba(56, 189, 248, 0.18);
+
+    /* Spatial Depth Surfaces */
+    --depth-0: #0D0D0D;
+    --depth-1: rgba(20, 20, 20, 0.82);
+    --depth-2: rgba(26, 26, 26, 0.90);
+    --depth-3: rgba(30, 30, 30, 0.96);
+  }
+
+  * {
+    border-color: var(--border-line);
+  }
+
+  html {
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+
+  /* Fluid typography */
+  .hero-heading {
+    font-size: clamp(2.5rem, 6vw + 0.5rem, 5.25rem);
+    line-height: 1.05;
+    letter-spacing: -0.035em;
+  }
+
+  .section-heading {
+    font-size: clamp(1.75rem, 3.5vw + 0.25rem, 2.75rem);
+    line-height: 1.15;
+    letter-spacing: -0.025em;
+  }
+
+  .project-title {
+    font-size: clamp(1.5rem, 2.5vw + 0.25rem, 2.25rem);
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+  }
+}
+
+/* Selective Spatial Glass System */
+@layer components {
+  /* Level 1: Content Surface */
+  .glass-surface {
+    background-color: var(--depth-1);
+    backdrop-filter: blur(12px) saturate(180%);
+    -webkit-backdrop-filter: blur(12px) saturate(180%);
+    border: 1px solid var(--border-line);
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.03);
+  }
+
+  /* Level 2: Interactive / Floating Surface */
+  .glass-panel {
+    background-color: var(--depth-2);
+    backdrop-filter: blur(16px) saturate(190%);
+    -webkit-backdrop-filter: blur(16px) saturate(190%);
+    border: 1px solid var(--border-line);
+    box-shadow: 0 4px 12px -2px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.03);
+  }
+
+  /* Level 3: Modal / Command Surface */
+  .glass-modal {
+    background-color: var(--depth-3);
+    backdrop-filter: blur(24px) saturate(200%);
+    -webkit-backdrop-filter: blur(24px) saturate(200%);
+    border: 1px solid var(--border-line);
+    box-shadow: 0 16px 36px -4px rgba(0, 0, 0, 0.15), 0 6px 12px -2px rgba(0, 0, 0, 0.08);
+  }
+}
+
+/* Fallback for browsers without backdrop-filter support */
+@supports not ((-webkit-backdrop-filter: blur(1px)) or (backdrop-filter: blur(1px))) {
+  .glass-surface {
+    background-color: var(--bg-surface);
+  }
+  .glass-panel {
+    background-color: var(--bg-surface-elevated);
+  }
+  .glass-modal {
+    background-color: var(--bg-surface);
+  }
+}
+
+/* SVG Data Packet Flow Animations */
+@keyframes packetTravel {
+  0% {
+    offset-distance: 0%;
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+  }
+  85% {
+    opacity: 1;
+  }
+  100% {
+    offset-distance: 100%;
+    opacity: 0;
+  }
+}
+
+@keyframes lineDashMove {
+  to {
+    stroke-dashoffset: -20;
+  }
+}
+
+.animate-data-flow {
+  animation: lineDashMove 1.5s linear infinite;
+}
+
+/* Route Page Transition */
+.route-fade-enter {
+  opacity: 0;
+  transform: translateY(8px);
+}
+.route-fade-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 250ms ease-out, transform 250ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .animate-data-flow {
+    animation: none !important;
+  }
+  .route-fade-enter-active {
+    transition: none !important;
+    transform: none !important;
+  }
+}
+
+/* Focus styles for keyboard accessibility */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
