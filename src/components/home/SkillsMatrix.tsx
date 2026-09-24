@@ -20,7 +20,7 @@ export function SkillsMatrix() {
             {/* Category Header */}
             <div className="border-b border-borderLine-subtleLight dark:border-borderLine-subtleDark pb-3">
               <h3 className="font-mono text-xs font-semibold text-accent dark:text-accent-dark tracking-wider uppercase">
-                // {cat.title}
+                {cat.title}
               </h3>
               <p className="text-[11px] text-ink-muted dark:text-ink-mutedDark mt-1 leading-normal">
                 {cat.description}

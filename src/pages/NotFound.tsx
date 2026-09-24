@@ -11,7 +11,7 @@ export function NotFound() {
     <div className="py-24 my-auto">
       <Container size="sm" className="text-center space-y-4">
         <div className="font-mono text-sm text-accent dark:text-accent-dark">
-          ERR_404 // RESOURCE_NOT_FOUND
+          404 · Page Not Found
         </div>
         <h1 className="text-4xl font-bold tracking-tight">Page Not Found</h1>
         <p className="text-ink-secondary dark:text-ink-secondaryDark max-w-md mx-auto">

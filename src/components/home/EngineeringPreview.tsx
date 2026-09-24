@@ -28,7 +28,7 @@ export function EngineeringPreview() {
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
         <div className="p-4 rounded border border-borderLine-light dark:border-borderLine-dark bg-surface-light dark:bg-surface-dark space-y-1">
           <div className="font-mono text-xs font-semibold text-ink-primary dark:text-ink-primaryDark">
-            // SYSTEMS
+            Systems
           </div>
           <p className="text-[11px] text-ink-secondary dark:text-ink-secondaryDark leading-normal">
             Operating systems, worker pools, locks, POSIX primitives.
@@ -37,7 +37,7 @@ export function EngineeringPreview() {
 
         <div className="p-4 rounded border border-borderLine-light dark:border-borderLine-dark bg-surface-light dark:bg-surface-dark space-y-1">
           <div className="font-mono text-xs font-semibold text-ink-primary dark:text-ink-primaryDark">
-            // NETWORKING
+            Networking
           </div>
           <p className="text-[11px] text-ink-secondary dark:text-ink-secondaryDark leading-normal">
             TCP socket mechanics, SSE unidirectional streams, HTTP/2.
@@ -46,7 +46,7 @@ export function EngineeringPreview() {
 
         <div className="p-4 rounded border border-borderLine-light dark:border-borderLine-dark bg-surface-light dark:bg-surface-dark space-y-1">
           <div className="font-mono text-xs font-semibold text-ink-primary dark:text-ink-primaryDark">
-            // ROBOTICS
+            Robotics
           </div>
           <p className="text-[11px] text-ink-secondary dark:text-ink-secondaryDark leading-normal">
             ROS costmaps, DWA local planning, sensor telemetry.
@@ -55,7 +55,7 @@ export function EngineeringPreview() {
 
         <div className="p-4 rounded border border-borderLine-light dark:border-borderLine-dark bg-surface-light dark:bg-surface-dark space-y-1">
           <div className="font-mono text-xs font-semibold text-ink-primary dark:text-ink-primaryDark">
-            // ALGORITHMS
+            Algorithms
           </div>
           <p className="text-[11px] text-ink-secondary dark:text-ink-secondaryDark leading-normal">
             Information retrieval, rank fusion, tree/graph traversal.
@@ -90,7 +90,7 @@ export function EngineeringPreview() {
               <div className="pt-2 space-y-1.5 font-mono text-[11px] text-ink-secondary dark:text-ink-secondaryDark">
                 {note.keyInsights.slice(0, 2).map((insight, idx) => (
                   <div key={idx} className="flex items-start gap-2">
-                    <span className="text-accent dark:text-accent-dark shrink-0">→</span>
+                    <span className="w-1.5 h-1.5 rounded-full bg-accent/60 mt-1 shrink-0" />
                     <span className="leading-tight">{insight}</span>
                   </div>
                 ))}

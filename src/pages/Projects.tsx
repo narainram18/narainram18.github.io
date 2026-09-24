@@ -26,9 +26,9 @@ export function Projects() {
         <div className="space-y-4">
           <div className="flex items-center justify-between font-mono text-xs text-ink-muted dark:text-ink-mutedDark pb-2 border-b border-borderLine-subtleLight dark:border-borderLine-subtleDark">
             <span className="font-semibold text-accent dark:text-accent-dark">
-              // FLAGSHIP_SYSTEM
+              Flagship System
             </span>
-            <span>DATA-DRIVEN SPOTLIGHT</span>
+            <span>Data-Driven Spotlight</span>
           </div>
 
           <ProjectCard project={featuredProject} index={0} />
@@ -38,7 +38,7 @@ export function Projects() {
         <div className="space-y-6 pt-4">
           <div className="flex items-center justify-between font-mono text-xs text-ink-muted dark:text-ink-mutedDark pb-2 border-b border-borderLine-subtleLight dark:border-borderLine-subtleDark">
             <span className="font-semibold text-ink-primary dark:text-ink-primaryDark">
-              // SYSTEMS, NETWORKING & ROBOTICS
+              Systems, Networking & Robotics
             </span>
             <span>{otherProjects.length} ADDITIONAL SYSTEMS</span>
           </div>

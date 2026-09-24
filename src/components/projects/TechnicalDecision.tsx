@@ -12,7 +12,7 @@ export function TechnicalDecision({ decision, index }: TechnicalDecisionProps) {
       {/* Header */}
       <div className="px-5 py-3.5 border-b border-borderLine-subtleLight dark:border-borderLine-subtleDark bg-surface-elevatedLight/50 dark:bg-surface-elevatedDark/50 flex flex-wrap items-center justify-between gap-2 font-mono text-xs">
         <span className="font-semibold text-accent dark:text-accent-dark">
-          0{index + 1} // DECISION_LOG
+          Decision 0{index + 1}
         </span>
         <span className="text-ink-primary dark:text-ink-primaryDark font-medium">
           {decision.topic}

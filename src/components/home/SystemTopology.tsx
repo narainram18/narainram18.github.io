@@ -132,7 +132,7 @@ export function SystemTopology() {
         <div className="flex items-center gap-2">
           <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
           <span className="font-semibold text-ink-primary dark:text-ink-primaryDark tracking-wider">
-            SYSTEM_TOPOLOGY // SPATIAL_V3
+            System Topology
           </span>
         </div>
 

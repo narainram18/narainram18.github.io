@@ -16,7 +16,7 @@ export function Hero() {
               <span>{SITE_CONFIG.role.toUpperCase()}</span>
             </span>
             <span className="text-xs font-mono text-ink-muted dark:text-ink-mutedDark">
-              // CHENNAI, INDIA
+              Chennai, India
             </span>
           </div>
 

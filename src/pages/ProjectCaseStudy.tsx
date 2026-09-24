@@ -67,7 +67,7 @@ export function ProjectCaseStudy() {
     return (
       <Container size="sm" className="py-24 text-center space-y-4">
         <div className="font-mono text-sm text-accent dark:text-accent-dark">
-          ERR_PROJECT_NOT_FOUND // 404
+          404 · Project Not Found
         </div>
         <h1 className="text-3xl font-bold tracking-tight">Project Not Found</h1>
         <p className="text-ink-secondary dark:text-ink-secondaryDark">
@@ -117,13 +117,13 @@ export function ProjectCaseStudy() {
           <div className="space-y-3 max-w-4xl">
             <div className="flex flex-wrap items-center gap-2.5 font-mono text-xs">
               <span className="font-semibold text-accent dark:text-accent-dark">
-                CASE_STUDY // 0{projectIndex + 1}
+                Case Study · 0{projectIndex + 1}
               </span>
-              <span className="text-borderLine-light dark:text-borderLine-dark">|</span>
+              <span className="text-ink-muted/50 dark:text-ink-mutedDark/50">·</span>
               <span className="text-ink-secondary dark:text-ink-secondaryDark">
-                {project.category.toUpperCase()}
+                {project.category}
               </span>
-              <span className="text-borderLine-light dark:text-borderLine-dark">|</span>
+              <span className="text-ink-muted/50 dark:text-ink-mutedDark/50">·</span>
               <span className="text-ink-muted dark:text-ink-mutedDark">{project.year}</span>
             </div>
 
@@ -220,7 +220,7 @@ export function ProjectCaseStudy() {
           <aside className="hidden lg:block lg:col-span-3">
             <div className="sticky top-24 p-3.5 rounded-xl glass-panel space-y-3 font-mono text-xs">
               <div className="font-semibold text-ink-muted dark:text-ink-mutedDark uppercase tracking-wider text-[11px] pb-2 border-b border-borderLine-subtleLight dark:border-borderLine-subtleDark">
-                // SPEC_NAVIGATION
+                Navigation
               </div>
 
               <nav className="flex flex-col space-y-1" aria-label="Case study section navigation">
@@ -237,7 +237,7 @@ export function ProjectCaseStudy() {
                       }`}
                     >
                       <span>{item.label}</span>
-                      {isActive && <span className="text-accent dark:text-accent-dark">→</span>}
+                      {isActive && <span className="w-1.5 h-1.5 rounded-full bg-accent dark:bg-accent-dark" />}
                     </a>
                   );
                 })}
@@ -273,7 +273,7 @@ export function ProjectCaseStudy() {
             <section id="overview" className="scroll-mt-24 space-y-4">
               <div className="flex items-center gap-2 font-mono text-xs font-semibold text-accent dark:text-accent-dark uppercase tracking-wider">
                 <Layers className="w-4 h-4" />
-                <span>01 // OVERVIEW</span>
+                <span>01 · Overview</span>
               </div>
               <h2 className="text-2xl font-bold tracking-tight text-ink-primary dark:text-ink-primaryDark">
                 What Was Built
@@ -287,7 +287,7 @@ export function ProjectCaseStudy() {
             <section id="problem" className="scroll-mt-24 space-y-4 pt-4 border-t border-borderLine-subtleLight dark:border-borderLine-subtleDark">
               <div className="flex items-center gap-2 font-mono text-xs font-semibold text-accent dark:text-accent-dark uppercase tracking-wider">
                 <HelpCircle className="w-4 h-4" />
-                <span>02 // PROBLEM & MOTIVATION</span>
+                <span>02 · Problem & Motivation</span>
               </div>
               <h2 className="text-2xl font-bold tracking-tight text-ink-primary dark:text-ink-primaryDark">
                 The Engineering Challenge
@@ -301,7 +301,7 @@ export function ProjectCaseStudy() {
             <section id="architecture" className="scroll-mt-24 space-y-6 pt-4 border-t border-borderLine-subtleLight dark:border-borderLine-subtleDark">
               <div className="flex items-center gap-2 font-mono text-xs font-semibold text-accent dark:text-accent-dark uppercase tracking-wider">
                 <Cpu className="w-4 h-4" />
-                <span>03 // SYSTEM ARCHITECTURE</span>
+                <span>03 · System Architecture</span>
               </div>
               <h2 className="text-2xl font-bold tracking-tight text-ink-primary dark:text-ink-primaryDark">
                 Subsystems & Topology
@@ -320,7 +320,7 @@ export function ProjectCaseStudy() {
               <section id="implementation" className="scroll-mt-24 space-y-6 pt-4 border-t border-borderLine-subtleLight dark:border-borderLine-subtleDark">
                 <div className="flex items-center gap-2 font-mono text-xs font-semibold text-accent dark:text-accent-dark uppercase tracking-wider">
                   <Layers className="w-4 h-4" />
-                  <span>04 // IMPLEMENTATION DEEP DIVE</span>
+                  <span>04 · Implementation Deep Dive</span>
                 </div>
                 <h2 className="text-2xl font-bold tracking-tight text-ink-primary dark:text-ink-primaryDark">
                   Core Engineering Subsystems
@@ -358,7 +358,7 @@ export function ProjectCaseStudy() {
               <section id="decisions" className="scroll-mt-24 space-y-6 pt-4 border-t border-borderLine-subtleLight dark:border-borderLine-subtleDark">
                 <div className="flex items-center gap-2 font-mono text-xs font-semibold text-accent dark:text-accent-dark uppercase tracking-wider">
                   <AlertTriangle className="w-4 h-4" />
-                  <span>05 // TECHNICAL DECISIONS & TRADEOFFS</span>
+                  <span>05 · Technical Decisions & Tradeoffs</span>
                 </div>
                 <h2 className="text-2xl font-bold tracking-tight text-ink-primary dark:text-ink-primaryDark">
                   Architectural Rationale
@@ -377,7 +377,7 @@ export function ProjectCaseStudy() {
               <section id="challenges" className="scroll-mt-24 space-y-6 pt-4 border-t border-borderLine-subtleLight dark:border-borderLine-subtleDark">
                 <div className="flex items-center gap-2 font-mono text-xs font-semibold text-accent dark:text-accent-dark uppercase tracking-wider">
                   <AlertTriangle className="w-4 h-4" />
-                  <span>06 // PRODUCTION CHALLENGES & RESOLUTIONS</span>
+                  <span>06 · Production Challenges & Resolutions</span>
                 </div>
                 <h2 className="text-2xl font-bold tracking-tight text-ink-primary dark:text-ink-primaryDark">
                   Obstacles Overcome
@@ -412,7 +412,7 @@ export function ProjectCaseStudy() {
               <section id="results" className="scroll-mt-24 space-y-4 pt-4 border-t border-borderLine-subtleLight dark:border-borderLine-subtleDark">
                 <div className="flex items-center gap-2 font-mono text-xs font-semibold text-accent dark:text-accent-dark uppercase tracking-wider">
                   <CheckCircle2 className="w-4 h-4" />
-                  <span>07 // DELIVERABLES & CAPABILITIES</span>
+                  <span>07 · Deliverables & Capabilities</span>
                 </div>
                 <h2 className="text-2xl font-bold tracking-tight text-ink-primary dark:text-ink-primaryDark">
                   Factual Deliverables
@@ -435,7 +435,7 @@ export function ProjectCaseStudy() {
             <section id="gallery" className="scroll-mt-24 space-y-6 pt-4 border-t border-borderLine-subtleLight dark:border-borderLine-subtleDark">
               <div className="flex items-center gap-2 font-mono text-xs font-semibold text-accent dark:text-accent-dark uppercase tracking-wider">
                 <ImageIcon className="w-4 h-4" />
-                <span>08 // ARTIFACT GALLERY</span>
+                <span>08 · Artifact Gallery</span>
               </div>
               <h2 className="text-2xl font-bold tracking-tight text-ink-primary dark:text-ink-primaryDark">
                 Interface & Execution Captures
@@ -452,7 +452,7 @@ export function ProjectCaseStudy() {
               <section id="lessons" className="scroll-mt-24 space-y-4 pt-4 border-t border-borderLine-subtleLight dark:border-borderLine-subtleDark">
                 <div className="flex items-center gap-2 font-mono text-xs font-semibold text-accent dark:text-accent-dark uppercase tracking-wider">
                   <Lightbulb className="w-4 h-4" />
-                  <span>09 // ENGINEERING LESSONS</span>
+                  <span>09 · Engineering Lessons</span>
                 </div>
                 <h2 className="text-2xl font-bold tracking-tight text-ink-primary dark:text-ink-primaryDark">
                   Retrospective & Engineering Insights

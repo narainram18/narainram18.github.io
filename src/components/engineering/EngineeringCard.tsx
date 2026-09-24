@@ -48,11 +48,11 @@ export function EngineeringCard({ entry, index }: EngineeringCardProps) {
         <div className="px-6 py-3.5 border-b border-borderLine-subtleLight dark:border-borderLine-subtleDark bg-surface-elevatedLight/50 dark:bg-surface-elevatedDark/50 flex flex-wrap items-center justify-between gap-3 font-mono text-xs">
           <div className="flex items-center gap-2.5">
             <span className="font-semibold text-accent dark:text-accent-dark">
-              0{index + 1} // FEATURED_INVESTIGATION
+              Featured Investigation
             </span>
-            <span className="text-borderLine-light dark:text-borderLine-dark">|</span>
+            <span className="text-ink-muted/50 dark:text-ink-mutedDark/50">·</span>
             <span className="text-ink-secondary dark:text-ink-secondaryDark">
-              {entry.category.toUpperCase()}
+              {entry.category}
             </span>
           </div>
 
@@ -82,7 +82,7 @@ export function EngineeringCard({ entry, index }: EngineeringCardProps) {
             <div className="space-y-1.5">
               {entry.keyInsights.slice(0, 3).map((insight, idx) => (
                 <div key={idx} className="flex items-start gap-2 text-ink-primary dark:text-ink-primaryDark">
-                  <span className="text-accent dark:text-accent-dark shrink-0">→</span>
+                  <span className="w-1.5 h-1.5 rounded-full bg-accent/60 mt-1.5 shrink-0" />
                   <span className="font-sans text-xs sm:text-sm text-ink-secondary dark:text-ink-secondaryDark leading-normal">
                     {insight}
                   </span>
@@ -137,7 +137,7 @@ export function EngineeringCard({ entry, index }: EngineeringCardProps) {
       <div className="space-y-3">
         <div className="flex items-center justify-between font-mono text-xs">
           <span className="text-accent dark:text-accent-dark font-medium">
-            0{index + 1} // {entry.category.toUpperCase()}
+            0{index + 1} · {entry.category}
           </span>
           {getStatusBadge(entry.status)}
         </div>

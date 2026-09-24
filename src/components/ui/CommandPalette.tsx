@@ -49,7 +49,7 @@ export function CommandPalette({ isOpen, onClose }: CommandPaletteProps) {
     {
       id: 'nav-home',
       category: 'Navigation',
-      title: 'Home // Workstation Index',
+      title: 'Home · Overview',
       detail: 'Overview, system topology & featured work',
       icon: <Terminal className="w-4 h-4 text-accent dark:text-accent-dark" />,
       action: () => {
@@ -60,7 +60,7 @@ export function CommandPalette({ isOpen, onClose }: CommandPaletteProps) {
     {
       id: 'nav-projects',
       category: 'Navigation',
-      title: 'Projects // Systems Catalog',
+      title: 'Projects · Systems Catalog',
       detail: 'Curated software systems & architectures',
       icon: <FolderGit2 className="w-4 h-4 text-accent dark:text-accent-dark" />,
       action: () => {
@@ -71,7 +71,7 @@ export function CommandPalette({ isOpen, onClose }: CommandPaletteProps) {
     {
       id: 'nav-engineering',
       category: 'Navigation',
-      title: 'Engineering // Notebook & Lab',
+      title: 'Engineering · Notebook & Lab',
       detail: 'Systems, concurrency & networking investigations',
       icon: <FileCode2 className="w-4 h-4 text-accent dark:text-accent-dark" />,
       action: () => {
@@ -82,7 +82,7 @@ export function CommandPalette({ isOpen, onClose }: CommandPaletteProps) {
     {
       id: 'nav-about',
       category: 'Navigation',
-      title: 'About // Profile & Direction',
+      title: 'About · Profile & Direction',
       detail: 'Background, disciplines & engineering trajectory',
       icon: <Sparkles className="w-4 h-4 text-accent dark:text-accent-dark" />,
       action: () => {
@@ -321,7 +321,7 @@ export function CommandPalette({ isOpen, onClose }: CommandPaletteProps) {
             <span>↵ Select</span>
             <span>ESC Close</span>
           </div>
-          <span>MACOS SPATIAL CMD // K</span>
+          <span>Command Palette</span>
         </div>
       </div>
     </div>

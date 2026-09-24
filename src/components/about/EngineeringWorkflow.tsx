@@ -48,7 +48,7 @@ export function EngineeringWorkflow({ stages }: EngineeringWorkflowProps) {
                       : 'text-ink-muted dark:text-ink-mutedDark'
                   }
                 >
-                  {stage.number} // STAGE
+                  {stage.number} · Stage
                 </span>
                 {isSelected ? (
                   <span className="w-1.5 h-1.5 rounded-full bg-accent dark:bg-accent-dark animate-pulse" />
@@ -128,7 +128,7 @@ export function EngineeringWorkflow({ stages }: EngineeringWorkflowProps) {
           {/* Narrative & Focus */}
           <div className="lg:col-span-7 space-y-3">
             <div className="font-mono text-xs text-ink-muted dark:text-ink-mutedDark uppercase tracking-wider">
-              // METHODOLOGY & RIGOR
+              Methodology & Rigor
             </div>
             <p className="text-sm sm:text-base text-ink-primary dark:text-ink-primaryDark leading-relaxed">
               {activeStage.summary}

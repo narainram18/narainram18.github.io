@@ -41,7 +41,7 @@ export function AboutPreview() {
         {/* Technical Cornerstones Card */}
         <div className="lg:col-span-4 rounded-lg border border-borderLine-light dark:border-borderLine-dark bg-surface-light dark:bg-surface-dark p-5 space-y-4 font-mono text-xs">
           <div className="text-ink-primary dark:text-ink-primaryDark font-semibold uppercase tracking-wider text-[11px] pb-2 border-b border-borderLine-subtleLight dark:border-borderLine-subtleDark">
-            // CORE_PILLARS
+            Core Pillars
           </div>
 
           <div className="space-y-3.5">

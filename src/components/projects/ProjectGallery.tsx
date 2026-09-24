@@ -16,7 +16,7 @@ export function ProjectGallery({ screenshots, projectSlug }: ProjectGalleryProps
         <ImageIcon className="w-8 h-8 mx-auto text-ink-secondary dark:text-ink-secondaryDark opacity-60" />
         <div>
           <span className="font-semibold text-ink-primary dark:text-ink-primaryDark">
-            // SCREENSHOT_REGISTRY
+            Artifact Registry
           </span>
           <p className="mt-1 text-ink-secondary dark:text-ink-secondaryDark">
             No interface captures registered yet. Visual artifacts will be stored in{' '}

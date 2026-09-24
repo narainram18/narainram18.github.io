@@ -83,9 +83,9 @@ export function Engineering() {
             <div className="space-y-3">
               <div className="flex items-center justify-between font-mono text-xs text-ink-muted dark:text-ink-mutedDark pb-1">
                 <span className="font-semibold text-accent dark:text-accent-dark">
-                  // FEATURED_SYSTEM_INVESTIGATION
+                  Featured Investigation
                 </span>
-                <span>CONCURRENCY & OS PRIMITIVES</span>
+                <span>Concurrency & OS Primitives</span>
               </div>
 
               <EngineeringCard entry={featuredEntry} index={0} />
@@ -97,7 +97,7 @@ export function Engineering() {
         <div className="space-y-6 pt-2">
           <div className="flex items-center justify-between font-mono text-xs text-ink-muted dark:text-ink-mutedDark pb-2 border-b border-borderLine-subtleLight dark:border-borderLine-subtleDark">
             <span className="font-semibold text-ink-primary dark:text-ink-primaryDark">
-              // TECHNICAL_ENTRIES & BENCHMARK_LOGS
+              Technical Entries & Benchmark Logs
             </span>
             <span>
               {standardEntries.length} {standardEntries.length === 1 ? 'ENTRY' : 'ENTRIES'}
@@ -123,7 +123,7 @@ export function Engineering() {
               <Terminal className="w-4 h-4 text-accent shrink-0 mt-0.5" />
               <div className="space-y-1">
                 <span className="font-semibold text-ink-primary dark:text-ink-primaryDark">
-                  LAB_POLICY // DISCIPLINE OVER CONTENT VOLUME
+                  Lab Policy · Discipline Over Volume
                 </span>
                 <p className="text-[11px] font-sans leading-relaxed">
                   This engineering laboratory strictly documents technical investigations grounded in actual codebases, systems, and coursework. Entries marked with <strong className="font-mono text-amber-600 dark:text-amber-400">LAB PLAN</strong> represent upcoming benchmarks currently being designed.

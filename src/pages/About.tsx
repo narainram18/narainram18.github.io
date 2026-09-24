@@ -65,7 +65,7 @@ export function About() {
   return (
     <div>
       <PageHeader
-        label="ABOUT // PROFILE"
+        label="About · Profile"
         title="Background & Engineering Focus"
         description="Software engineering, systems architecture, and foundational mechanics beneath high-level abstractions."
       />
@@ -79,7 +79,7 @@ export function About() {
             <div className="space-y-4 max-w-4xl">
               <div className="flex flex-wrap items-center gap-2 font-mono text-xs text-ink-muted dark:text-ink-mutedDark pb-2 border-b border-borderLine-subtleLight dark:border-borderLine-subtleDark">
                 <span className="font-semibold text-accent dark:text-accent-dark">
-                  01 // IDENTITY & TRAJECTORY
+                  01 · Identity & Trajectory
                 </span>
                 <span>·</span>
                 <span>VIT CHENNAI '27</span>
@@ -166,7 +166,7 @@ export function About() {
           <Reveal>
             <div className="space-y-1">
               <div className="font-mono text-xs font-semibold text-accent dark:text-accent-dark uppercase tracking-wider">
-                02 // ENGINEERING PHILOSOPHY
+                02 · Engineering Philosophy
               </div>
               <h2
                 id="philosophy-heading"
@@ -187,7 +187,7 @@ export function About() {
                   <div className="space-y-2">
                     <div className="flex items-center gap-2 font-mono text-xs">
                       <span className="text-accent dark:text-accent-dark font-bold">
-                        {principle.number} // PRINCIPLE
+                        {principle.number} · Principle
                       </span>
                     </div>
                     <h3 className="font-bold text-base text-ink-primary dark:text-ink-primaryDark tracking-tight leading-snug">
@@ -215,7 +215,7 @@ export function About() {
             <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
               <div className="space-y-1">
                 <div className="font-mono text-xs font-semibold text-accent dark:text-accent-dark uppercase tracking-wider">
-                  03 // CAPABILITY MAP
+                  03 · Capability Map
                 </div>
                 <h2
                   id="capabilities-heading"
@@ -265,7 +265,7 @@ export function About() {
                         key={tIdx}
                         className="flex items-start gap-2 text-ink-primary dark:text-ink-primaryDark text-[11px]"
                       >
-                        <span className="text-accent dark:text-accent-dark shrink-0">›</span>
+                        <span className="w-1.5 h-1.5 rounded-full bg-accent/60 mt-1 shrink-0" />
                         <span className="leading-tight">{topic}</span>
                       </div>
                     ))}
@@ -283,7 +283,7 @@ export function About() {
           <Reveal>
             <div className="space-y-1">
               <div className="font-mono text-xs font-semibold text-accent dark:text-accent-dark uppercase tracking-wider">
-                04 // HOW I BUILD
+                04 · How I Build
               </div>
               <h2
                 id="workflow-heading"
@@ -309,7 +309,7 @@ export function About() {
           <Reveal>
             <div className="space-y-1">
               <div className="font-mono text-xs font-semibold text-accent dark:text-accent-dark uppercase tracking-wider">
-                05 // INDUSTRY & ACADEMIC CREDENTIALS
+                05 · Industry & Academic Credentials
               </div>
               <h2
                 id="credentials-heading"
@@ -416,7 +416,7 @@ export function About() {
             <div className="space-y-1">
               <div className="flex items-center gap-2 font-mono text-xs font-semibold text-accent dark:text-accent-dark uppercase tracking-wider">
                 <Compass className="w-4 h-4" />
-                <span>06 // CURRENT LAB & INVESTIGATIONS</span>
+                <span>06 · Current Lab & Investigations</span>
               </div>
               <h2
                 id="exploring-heading"
@@ -437,7 +437,7 @@ export function About() {
                   <div className="space-y-2">
                     <div className="flex items-center justify-between font-mono text-[10px]">
                       <span className="text-accent dark:text-accent-dark font-bold">
-                        //{topic.label}
+                        {topic.label}
                       </span>
                       <span
                         className={`px-1.5 py-0.5 rounded font-mono text-[9px] ${
@@ -485,7 +485,7 @@ export function About() {
             <div className="rounded-xl glass-panel p-6 sm:p-10 border border-borderLine-light dark:border-borderLine-dark space-y-8">
               <div className="space-y-3 max-w-3xl">
                 <div className="font-mono text-xs font-semibold text-accent dark:text-accent-dark uppercase tracking-wider">
-                  07 // IDENTITY FORMATION
+                  07 · Identity Formation
                 </div>
                 <h2
                   id="profile-heading"
@@ -545,7 +545,7 @@ export function About() {
             <div className="rounded-xl glass-surface p-6 sm:p-8 border border-borderLine-light dark:border-borderLine-dark flex flex-col md:flex-row md:items-center justify-between gap-6 shadow-sm">
               <div className="space-y-2 max-w-xl">
                 <div className="font-mono text-xs font-semibold text-accent dark:text-accent-dark uppercase tracking-wider">
-                  08 // GET IN TOUCH
+                  08 · Get In Touch
                 </div>
                 <h2
                   id="cta-heading"

@@ -50,7 +50,7 @@ export function ProjectArchitecture({
           <div className="flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
             <span className="font-semibold text-ink-primary dark:text-ink-primaryDark tracking-wider">
-              SYSTEM_TOPOLOGY // SUBSYSTEM_FLOW
+              System Topology · Subsystem Flow
             </span>
           </div>
 
@@ -130,7 +130,7 @@ export function ProjectArchitecture({
             <div className="p-4 rounded-md border border-borderLine-subtleLight dark:border-borderLine-subtleDark bg-surface-elevatedLight/40 dark:bg-surface-elevatedDark/40 space-y-2">
               <div className="flex items-center gap-2 font-mono text-xs text-accent dark:text-accent-dark font-medium">
                 <Info className="w-3.5 h-3.5" />
-                <span>ACTIVE_LAYER_SPEC // {activeLayer.layer.toUpperCase()}</span>
+                <span>Active Layer Spec · {activeLayer.layer}</span>
               </div>
               <p className="text-xs sm:text-sm text-ink-secondary dark:text-ink-secondaryDark leading-relaxed">
                 {activeLayer.description}
@@ -143,7 +143,7 @@ export function ProjectArchitecture({
       {/* Sequential Data Flow Sequence */}
       <div className="space-y-3 pt-2">
         <h4 className="font-mono text-xs font-semibold text-ink-primary dark:text-ink-primaryDark uppercase tracking-wider">
-          // EXECUTION_DATA_FLOW
+          Execution Data Flow
         </h4>
         <div className="rounded-lg border border-borderLine-light dark:border-borderLine-dark bg-surface-light dark:bg-surface-dark p-5 space-y-3 font-mono text-xs">
           {dataFlow.map((step, idx) => (

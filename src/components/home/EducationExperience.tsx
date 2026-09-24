@@ -18,7 +18,7 @@ export function EducationExperience() {
         <div className="lg:col-span-6 space-y-6">
           <div className="flex items-center gap-2 font-mono text-xs font-semibold text-accent dark:text-accent-dark tracking-wider pb-2 border-b border-borderLine-subtleLight dark:border-borderLine-subtleDark">
             <Briefcase className="w-4 h-4" />
-            <span>// PROFESSIONAL EXPERIENCE</span>
+            <span>Professional Experience</span>
           </div>
 
           <div className="space-y-6">
@@ -44,8 +44,8 @@ export function EducationExperience() {
 
                 <ul className="space-y-2 text-xs text-ink-secondary dark:text-ink-secondaryDark leading-relaxed">
                   {exp.responsibilities.map((resp, idx) => (
-                    <li key={idx} className="flex items-start gap-2">
-                      <span className="text-accent dark:text-accent-dark shrink-0 mt-0.5">•</span>
+                    <li key={idx} className="flex items-start gap-2.5">
+                      <span className="w-1.5 h-1.5 rounded-full bg-accent/60 mt-1.5 shrink-0" />
                       <span>{resp}</span>
                     </li>
                   ))}
@@ -67,7 +67,7 @@ export function EducationExperience() {
         <div className="lg:col-span-6 space-y-6">
           <div className="flex items-center gap-2 font-mono text-xs font-semibold text-accent dark:text-accent-dark tracking-wider pb-2 border-b border-borderLine-subtleLight dark:border-borderLine-subtleDark">
             <GraduationCap className="w-4 h-4" />
-            <span>// FORMAL EDUCATION</span>
+            <span>Formal Education</span>
           </div>
 
           <div className="space-y-6">
@@ -105,7 +105,7 @@ export function EducationExperience() {
             <div className="rounded-lg border border-borderLine-light dark:border-borderLine-dark bg-surface-elevatedLight/30 dark:bg-surface-elevatedDark/30 p-5 space-y-3 font-mono text-xs">
               <div className="flex items-center gap-1.5 font-semibold text-ink-primary dark:text-ink-primaryDark text-[11px] uppercase tracking-wider">
                 <Award className="w-3.5 h-3.5 text-accent" />
-                <span>// HACKATHON & RECOGNITION</span>
+                <span>Hackathons & Recognition</span>
               </div>
               <div className="space-y-2 text-ink-secondary dark:text-ink-secondaryDark text-[11px]">
                 <div>

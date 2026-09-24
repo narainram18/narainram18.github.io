@@ -19,7 +19,7 @@ export function SectionHeading({
     <div className={cn('mb-10 space-y-2', className)}>
       <div className="flex items-center gap-2.5 font-mono text-xs uppercase tracking-wider text-accent dark:text-accent-dark">
         {number && <span className="font-semibold">{number}</span>}
-        {number && tagline && <span className="text-borderLine-light dark:text-borderLine-dark">/</span>}
+        {number && tagline && <span className="text-ink-muted/50 dark:text-ink-mutedDark/50">·</span>}
         {tagline && <span className="text-ink-secondary dark:text-ink-secondaryDark">{tagline}</span>}
       </div>
       <h2 className="section-heading font-semibold text-ink-primary dark:text-ink-primaryDark tracking-tight">

@@ -19,11 +19,11 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
         <div className="px-6 py-3.5 border-b border-borderLine-subtleLight dark:border-borderLine-subtleDark bg-surface-elevatedLight/50 dark:bg-surface-elevatedDark/50 flex flex-wrap items-center justify-between gap-3 font-mono text-xs">
           <div className="flex items-center gap-2.5">
             <span className="font-semibold text-accent dark:text-accent-dark">
-              0{index + 1} // FEATURED_SYSTEM
+              Featured System
             </span>
-            <span className="text-borderLine-light dark:text-borderLine-dark">|</span>
+            <span className="text-ink-muted/50 dark:text-ink-mutedDark/50">·</span>
             <span className="text-ink-secondary dark:text-ink-secondaryDark">
-              {project.category.toUpperCase()}
+              {project.category}
             </span>
           </div>
           <div className="flex items-center gap-2">
@@ -107,7 +107,7 @@ export function ProjectCard({ project, index }: ProjectCardProps) {
       <div className="space-y-3">
         <div className="flex items-center justify-between font-mono text-[11px]">
           <span className="text-accent dark:text-accent-dark font-medium">
-            0{index + 1} // {project.category.toUpperCase()}
+            0{index + 1} · {project.category}
           </span>
           <span className="text-ink-muted dark:text-ink-mutedDark">{project.year}</span>
         </div>

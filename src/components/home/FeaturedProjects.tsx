@@ -40,10 +40,10 @@ export function FeaturedProjects() {
           <div className="px-6 py-3.5 border-b border-borderLine-subtleLight dark:border-borderLine-subtleDark bg-surface-elevatedLight/40 dark:bg-surface-elevatedDark/40 flex flex-wrap items-center justify-between gap-3 font-mono text-xs">
             <div className="flex items-center gap-2.5">
               <span className="font-semibold text-accent dark:text-accent-dark">
-                01 // FLAGSHIP SYSTEM
+                Flagship System
               </span>
-              <span className="text-borderLine-light dark:text-borderLine-dark">|</span>
-              <span className="text-ink-secondary dark:text-ink-secondaryDark">{flagship.category.toUpperCase()}</span>
+              <span className="text-ink-muted/50 dark:text-ink-mutedDark/50">·</span>
+              <span className="text-ink-secondary dark:text-ink-secondaryDark">{flagship.category}</span>
             </div>
             <div className="flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
@@ -69,7 +69,7 @@ export function FeaturedProjects() {
             <div className="rounded-lg border border-borderLine-light dark:border-borderLine-dark bg-canvas-light/60 dark:bg-canvas-dark/60 p-5 space-y-4">
               <div className="flex items-center justify-between font-mono text-xs text-ink-muted dark:text-ink-mutedDark pb-2 border-b border-borderLine-subtleLight dark:border-borderLine-subtleDark">
                 <span className="font-semibold text-ink-primary dark:text-ink-primaryDark">
-                  ARCHITECTURE_FLOW // 4-TIER SUBSYSTEM
+                  Architecture Flow · 4-Tier Subsystem
                 </span>
                 <span className="hidden sm:inline">INTERACTIVE SUBSYSTEM INSPECTOR</span>
               </div>
@@ -208,7 +208,7 @@ export function FeaturedProjects() {
       {/* Secondary Projects Grid with Spatial Level 1 Depth */}
       <div className="space-y-4">
         <div className="font-mono text-xs text-ink-muted dark:text-ink-mutedDark uppercase tracking-wider">
-          // ADDITIONAL_ENGINEERING_PROJECTS
+          Additional Systems
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -220,7 +220,7 @@ export function FeaturedProjects() {
                 <div className="space-y-3">
                   <div className="flex items-center justify-between font-mono text-[11px]">
                     <span className="text-accent dark:text-accent-dark font-medium">
-                      0{idx + 2} // {project.category.toUpperCase()}
+                      0{idx + 2} · {project.category}
                     </span>
                     <span className="text-ink-muted dark:text-ink-mutedDark">{project.year}</span>
                   </div>

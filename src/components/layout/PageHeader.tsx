@@ -14,7 +14,7 @@ export function PageHeader({ label, title, description, className }: PageHeaderP
       <Container size="lg">
         <div className="space-y-3 max-w-3xl">
           <div className="font-mono text-xs uppercase tracking-wider text-accent dark:text-accent-dark font-medium">
-            // {label}
+            {label}
           </div>
           <h1 className="hero-heading font-semibold text-ink-primary dark:text-ink-primaryDark tracking-tight">
             {title}

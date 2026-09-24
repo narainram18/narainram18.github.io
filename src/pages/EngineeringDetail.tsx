@@ -48,7 +48,7 @@ export function EngineeringDetail() {
     return (
       <Container size="sm" className="py-24 text-center space-y-4">
         <div className="font-mono text-sm text-accent dark:text-accent-dark">
-          ERR_NOTE_NOT_FOUND // 404
+          404 · Entry Not Found
         </div>
         <h1 className="text-3xl font-bold tracking-tight">Engineering Entry Not Found</h1>
         <p className="text-ink-secondary dark:text-ink-secondaryDark">
@@ -84,11 +84,11 @@ export function EngineeringDetail() {
         <header className="pb-8 border-b border-borderLine-light dark:border-borderLine-dark space-y-4">
           <div className="flex flex-wrap items-center gap-2 font-mono text-xs">
             <span className="font-semibold text-accent dark:text-accent-dark">
-              ENGINEERING // {entry.category.toUpperCase()}
+              Engineering · {entry.category}
             </span>
-            <span className="text-borderLine-light dark:text-borderLine-dark">|</span>
+            <span className="text-ink-muted/50 dark:text-ink-mutedDark/50">·</span>
             <span className="text-ink-muted dark:text-ink-mutedDark">{entry.date}</span>
-            <span className="text-borderLine-light dark:text-borderLine-dark">|</span>
+            <span className="text-ink-muted/50 dark:text-ink-mutedDark/50">·</span>
             <span className="text-ink-secondary dark:text-ink-secondaryDark">{entry.readTime}</span>
           </div>
 
@@ -132,7 +132,7 @@ export function EngineeringDetail() {
             <section className="space-y-3">
               <div className="flex items-center gap-2 font-mono text-xs font-semibold text-accent dark:text-accent-dark uppercase tracking-wider">
                 <HelpCircle className="w-4 h-4" />
-                <span>01 // CONTEXT</span>
+                <span>01 · Context</span>
               </div>
               <h2 className="text-xl font-bold tracking-tight text-ink-primary dark:text-ink-primaryDark">
                 Why Investigate This?
@@ -148,7 +148,7 @@ export function EngineeringDetail() {
             <section className="space-y-3 p-5 rounded-lg border border-borderLine-light dark:border-borderLine-dark bg-surface-elevatedLight/30 dark:bg-surface-elevatedDark/30">
               <div className="flex items-center gap-2 font-mono text-xs font-semibold text-accent dark:text-accent-dark uppercase tracking-wider">
                 <FileQuestion className="w-4 h-4" />
-                <span>02 // CORE ENGINEERING QUESTION</span>
+                <span>02 · Core Engineering Question</span>
               </div>
               <p className="text-base font-medium text-ink-primary dark:text-ink-primaryDark leading-relaxed">
                 "{entry.question}"
@@ -161,7 +161,7 @@ export function EngineeringDetail() {
             <section className="space-y-3">
               <div className="flex items-center gap-2 font-mono text-xs font-semibold text-accent dark:text-accent-dark uppercase tracking-wider">
                 <Terminal className="w-4 h-4" />
-                <span>03 // APPROACH & IMPLEMENTATION</span>
+                <span>03 · Approach & Implementation</span>
               </div>
               <h2 className="text-xl font-bold tracking-tight text-ink-primary dark:text-ink-primaryDark">
                 Methodology & Setup
@@ -186,7 +186,7 @@ export function EngineeringDetail() {
             <section className="space-y-3">
               <div className="flex items-center gap-2 font-mono text-xs font-semibold text-accent dark:text-accent-dark uppercase tracking-wider">
                 <AlertCircle className="w-4 h-4" />
-                <span>04 // SYSTEM OBSERVATIONS</span>
+                <span>04 · System Observations</span>
               </div>
               <h2 className="text-xl font-bold tracking-tight text-ink-primary dark:text-ink-primaryDark">
                 Behavior Observed Under Test
@@ -211,7 +211,7 @@ export function EngineeringDetail() {
             <section className="space-y-3">
               <div className="flex items-center gap-2 font-mono text-xs font-semibold text-accent dark:text-accent-dark uppercase tracking-wider">
                 <CheckCircle2 className="w-4 h-4" />
-                <span>05 // RESULTS & MEASUREMENTS</span>
+                <span>05 · Results & Measurements</span>
               </div>
               <h2 className="text-xl font-bold tracking-tight text-ink-primary dark:text-ink-primaryDark">
                 Empirical Takeaways
@@ -232,7 +232,7 @@ export function EngineeringDetail() {
             <section className="space-y-3 pt-4 border-t border-borderLine-subtleLight dark:border-borderLine-subtleDark">
               <div className="flex items-center gap-2 font-mono text-xs font-semibold text-accent dark:text-accent-dark uppercase tracking-wider">
                 <Lightbulb className="w-4 h-4" />
-                <span>06 // WHAT I LEARNED</span>
+                <span>06 · What I Learned</span>
               </div>
               <h2 className="text-xl font-bold tracking-tight text-ink-primary dark:text-ink-primaryDark">
                 Core Engineering Conclusions
@@ -243,9 +243,7 @@ export function EngineeringDetail() {
                     key={idx}
                     className="p-4 rounded-md border border-borderLine-light dark:border-borderLine-dark bg-surface-light dark:bg-surface-dark flex items-start gap-3 font-mono text-xs"
                   >
-                    <span className="text-accent dark:text-accent-dark font-bold shrink-0">
-                      →
-                    </span>
+                    <span className="w-1.5 h-1.5 rounded-full bg-accent/60 mt-1.5 shrink-0" />
                     <span className="font-sans text-xs sm:text-sm text-ink-secondary dark:text-ink-secondaryDark leading-relaxed">
                       {insight}
                     </span>
@@ -262,7 +260,7 @@ export function EngineeringDetail() {
                 <div className="space-y-1">
                   <div className="flex items-center gap-2 font-mono text-xs text-accent dark:text-accent-dark font-semibold">
                     <Link2 className="w-4 h-4" />
-                    <span>RELATED_SYSTEM // CASE_STUDY</span>
+                    <span>Related System · Case Study</span>
                   </div>
                   <h3 className="text-base font-bold text-ink-primary dark:text-ink-primaryDark">
                     {relatedProject.title}
