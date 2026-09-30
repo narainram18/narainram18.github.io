@@ -3,20 +3,15 @@ import { useParams, Link } from 'react-router-dom';
 import {
   ArrowLeft,
   ArrowRight,
-  HelpCircle,
-  FileQuestion,
-  Lightbulb,
+  FlaskConical,
   CheckCircle2,
-  AlertCircle,
-  Terminal,
-  Link2,
+  Layers,
+  Code,
+  Lightbulb,
 } from 'lucide-react';
-import { Container } from '@/components/layout/Container';
-import { Badge } from '@/components/ui/Badge';
-import { Button } from '@/components/ui/Button';
-import { CodeSnippet } from '@/components/engineering/CodeSnippet';
 import { ENGINEERING_ENTRIES } from '@/data/engineering';
 import { PROJECTS } from '@/data/projects';
+import { CodeSnippet } from '@/components/engineering/CodeSnippet';
 import { usePageMetadata } from '@/hooks/usePageMetadata';
 
 export function EngineeringDetail() {
@@ -26,7 +21,7 @@ export function EngineeringDetail() {
   const entry = ENGINEERING_ENTRIES[entryIndex];
 
   usePageMetadata(
-    entry ? `${entry.title} — Narain Ram R M` : 'Engineering Investigation — Narain Ram R M',
+    entry ? `${entry.title} // Codex — Narain Ram R M` : 'Codex Investigation — Narain Ram R M',
     entry ? entry.summary : 'Engineering notebook and systems investigation by Narain Ram R M.'
   );
 
@@ -46,282 +41,260 @@ export function EngineeringDetail() {
 
   if (!entry) {
     return (
-      <Container size="sm" className="py-24 text-center space-y-4">
-        <div className="font-mono text-sm text-accent dark:text-accent-dark">
-          404 · Entry Not Found
+      <div className="pt-28 pb-24 px-4 max-w-2xl mx-auto text-center space-y-4">
+        <div className="font-mono text-sm text-[#C5A059]">
+          404 · CODEX RECORD NOT FOUND
         </div>
-        <h1 className="text-3xl font-bold tracking-tight">Engineering Entry Not Found</h1>
-        <p className="text-ink-secondary dark:text-ink-secondaryDark">
-          No investigation matches the requested slug: <code className="font-mono">{slug}</code>.
+        <h1 className="font-serif text-3xl font-bold text-[#E6DFD5] uppercase">
+          Codex Not Found
+        </h1>
+        <p className="font-sans text-sm text-[#9A8F80]">
+          No technical investigation matches the requested slug: <code className="font-mono text-[#C5A059]">{slug}</code>.
         </p>
         <div className="pt-4">
-          <Link to="/engineering">
-            <Button variant="secondary" className="gap-2">
-              <ArrowLeft className="w-4 h-4" />
-              <span>Back to Engineering Notebook</span>
-            </Button>
+          <Link
+            to="/engineering"
+            className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#C5A059] text-[#111319] font-mono text-xs font-bold uppercase tracking-wider"
+          >
+            <ArrowLeft className="w-4 h-4" />
+            <span>Return to Engineering Library</span>
           </Link>
         </div>
-      </Container>
+      </div>
     );
   }
 
+  const isLabPlan = entry.isPlaceholder;
+
   return (
-    <div className="py-8 md:py-12">
-      <Container size="md">
-        {/* Back Link */}
-        <div className="mb-6">
-          <Link
-            to="/engineering"
-            className="inline-flex items-center gap-1.5 font-mono text-xs text-ink-secondary dark:text-ink-secondaryDark hover:text-accent dark:hover:text-accent-dark transition-colors"
-          >
-            <ArrowLeft className="w-3.5 h-3.5" />
-            <span>Engineering Notebook</span>
-          </Link>
+    <div className="pt-20 pb-28 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto w-full select-none">
+      {/* Top Command Bar */}
+      <div className="bg-[#111319] border border-[#272A30] p-3 flex items-center justify-between gap-3 mb-6">
+        <Link
+          to="/engineering"
+          className="inline-flex items-center gap-2 font-mono text-xs text-[#9A8F80] hover:text-[#C5A059] transition-colors"
+        >
+          <ArrowLeft className="w-4 h-4" />
+          <span>RETURN TO CODICES</span>
+        </Link>
+
+        <div className="flex items-center gap-2">
+          <span className="w-1.5 h-1.5 rounded-full bg-[#E6C093] animate-pulse" />
+          <span className="font-mono text-[10px] text-[#E6C093] tracking-widest uppercase font-semibold">
+            CODEX // 0{entryIndex + 1}
+          </span>
+        </div>
+      </div>
+
+      {/* Header Monolith */}
+      <header className="stone-panel p-6 sm:p-8 space-y-4 mb-8 border-t-2 border-t-[#C5A059]">
+        <div className="flex items-center justify-between gap-2 flex-wrap">
+          <div className="flex items-center gap-2">
+            <span className="font-mono text-[10px] text-[#C5A059] px-2 py-0.5 bg-[#080C12] border border-[#272A30] uppercase font-bold">
+              {entry.category}
+            </span>
+            <span className="font-mono text-[10px] text-[#9A8F80]">
+              {entry.date} · {entry.readTime}
+            </span>
+          </div>
+
+          {isLabPlan ? (
+            <span className="font-mono text-[10px] px-2.5 py-0.5 bg-[#1D2025] text-[#D97736] border border-[#D97736]/40 flex items-center gap-1 font-semibold uppercase">
+              <FlaskConical className="w-3.5 h-3.5 text-[#D97736]" />
+              LAB PLAN (PLANNED EXPERIMENT)
+            </span>
+          ) : (
+            <span className="font-mono text-[10px] px-2.5 py-0.5 bg-[#1D2025] text-[#C5A059] border border-[#C5A059]/40 flex items-center gap-1 font-semibold uppercase">
+              <CheckCircle2 className="w-3.5 h-3.5 text-[#C5A059]" />
+              VERIFIED INVESTIGATION
+            </span>
+          )}
         </div>
 
-        {/* Entry Header */}
-        <header className="pb-8 border-b border-borderLine-light dark:border-borderLine-dark space-y-4">
-          <div className="flex flex-wrap items-center gap-2 font-mono text-xs">
-            <span className="font-semibold text-accent dark:text-accent-dark">
-              Engineering · {entry.category}
+        <h1 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-bold text-[#E6DFD5] uppercase tracking-wide leading-tight">
+          {entry.title}
+        </h1>
+
+        <p className="font-sans text-sm sm:text-base text-[#9A8F80] leading-relaxed">
+          {entry.summary}
+        </p>
+
+        {/* Topics */}
+        <div className="flex flex-wrap gap-1.5 pt-2 border-t border-[#272A30]">
+          {entry.topics.map((t) => (
+            <span
+              key={t}
+              className="font-mono text-[10px] px-2.5 py-0.5 bg-[#080C12] text-[#E6C093] border border-[#272A30]"
+            >
+              {t}
             </span>
-            <span className="text-ink-muted/50 dark:text-ink-mutedDark/50">·</span>
-            <span className="text-ink-muted dark:text-ink-mutedDark">{entry.date}</span>
-            <span className="text-ink-muted/50 dark:text-ink-mutedDark/50">·</span>
-            <span className="text-ink-secondary dark:text-ink-secondaryDark">{entry.readTime}</span>
+          ))}
+        </div>
+      </header>
+
+      {/* Main Codex Content Flow */}
+      <div className="space-y-8">
+        {/* Context & Core Question */}
+        <section className="stone-panel p-6 space-y-4">
+          <div className="space-y-2">
+            <span className="font-mono text-[10px] text-[#C5A059] uppercase tracking-wider block font-semibold">
+              01 · INVESTIGATION CONTEXT
+            </span>
+            <p className="font-sans text-sm text-[#E6DFD5] leading-relaxed">
+              {entry.context}
+            </p>
           </div>
 
-          <h1 className="hero-heading font-bold text-ink-primary dark:text-ink-primaryDark tracking-tight">
-            {entry.title}
-          </h1>
+          <div className="bg-[#080C12] p-4 border-l-2 border-l-[#C5A059]">
+            <span className="font-mono text-[10px] text-[#C5A059] uppercase tracking-wider block mb-1 font-semibold">
+              CORE ENGINEERING QUESTION
+            </span>
+            <p className="font-sans text-xs sm:text-sm text-[#E6C093] font-medium leading-relaxed">
+              {entry.question}
+            </p>
+          </div>
+        </section>
 
-          <p className="text-lg text-ink-secondary dark:text-ink-secondaryDark leading-relaxed">
-            {entry.summary}
+        {/* Approach */}
+        <section className="stone-panel p-6 space-y-3">
+          <span className="font-mono text-[10px] text-[#C5A059] uppercase tracking-wider block font-semibold">
+            02 · EVALUATION APPROACH &amp; METHOD
+          </span>
+          <p className="font-sans text-sm text-[#9A8F80] leading-relaxed">
+            {entry.approach}
           </p>
+        </section>
 
-          <div className="flex flex-wrap items-center justify-between gap-3 pt-2">
-            <div className="flex flex-wrap gap-1.5">
-              {entry.topics.map((t) => (
-                <Badge key={t} variant="outline" className="text-xs">
-                  {t}
-                </Badge>
-              ))}
-            </div>
-
-            <div className="font-mono text-xs">
-              {entry.status === 'Completed' ? (
-                <span className="text-emerald-600 dark:text-emerald-400 font-medium flex items-center gap-1.5">
-                  <span className="w-2 h-2 rounded-full bg-emerald-500" />
-                  <span>VERIFIED INVESTIGATION</span>
-                </span>
-              ) : (
-                <span className="text-amber-600 dark:text-amber-400 font-medium flex items-center gap-1.5">
-                  <span className="w-2 h-2 rounded-full bg-amber-500" />
-                  <span>LAB PLAN / IN DESIGN</span>
-                </span>
-              )}
-            </div>
-          </div>
-        </header>
-
-        {/* Main Content Sections */}
-        <main className="py-10 space-y-12">
-          {/* CONTEXT */}
-          {entry.context && (
-            <section className="space-y-3">
-              <div className="flex items-center gap-2 font-mono text-xs font-semibold text-accent dark:text-accent-dark uppercase tracking-wider">
-                <HelpCircle className="w-4 h-4" />
-                <span>01 · Context</span>
-              </div>
-              <h2 className="text-xl font-bold tracking-tight text-ink-primary dark:text-ink-primaryDark">
-                Why Investigate This?
-              </h2>
-              <p className="text-base text-ink-secondary dark:text-ink-secondaryDark leading-relaxed">
-                {entry.context}
-              </p>
-            </section>
-          )}
-
-          {/* QUESTION */}
-          {entry.question && (
-            <section className="space-y-3 p-5 rounded-lg border border-borderLine-light dark:border-borderLine-dark bg-surface-elevatedLight/30 dark:bg-surface-elevatedDark/30">
-              <div className="flex items-center gap-2 font-mono text-xs font-semibold text-accent dark:text-accent-dark uppercase tracking-wider">
-                <FileQuestion className="w-4 h-4" />
-                <span>02 · Core Engineering Question</span>
-              </div>
-              <p className="text-base font-medium text-ink-primary dark:text-ink-primaryDark leading-relaxed">
-                "{entry.question}"
-              </p>
-            </section>
-          )}
-
-          {/* APPROACH */}
-          {entry.approach && (
-            <section className="space-y-3">
-              <div className="flex items-center gap-2 font-mono text-xs font-semibold text-accent dark:text-accent-dark uppercase tracking-wider">
-                <Terminal className="w-4 h-4" />
-                <span>03 · Approach & Implementation</span>
-              </div>
-              <h2 className="text-xl font-bold tracking-tight text-ink-primary dark:text-ink-primaryDark">
-                Methodology & Setup
-              </h2>
-              <p className="text-base text-ink-secondary dark:text-ink-secondaryDark leading-relaxed">
-                {entry.approach}
-              </p>
-
-              {/* Optional Code Snippet */}
-              {entry.codeSnippet && (
-                <CodeSnippet
-                  language={entry.codeSnippet.language}
-                  code={entry.codeSnippet.code}
-                  caption={entry.codeSnippet.caption}
-                />
-              )}
-            </section>
-          )}
-
-          {/* OBSERVATIONS */}
-          {entry.observations && entry.observations.length > 0 && (
-            <section className="space-y-3">
-              <div className="flex items-center gap-2 font-mono text-xs font-semibold text-accent dark:text-accent-dark uppercase tracking-wider">
-                <AlertCircle className="w-4 h-4" />
-                <span>04 · System Observations</span>
-              </div>
-              <h2 className="text-xl font-bold tracking-tight text-ink-primary dark:text-ink-primaryDark">
-                Behavior Observed Under Test
-              </h2>
-              <div className="rounded-lg border border-borderLine-light dark:border-borderLine-dark bg-surface-light dark:bg-surface-dark p-5 space-y-3 font-mono text-xs">
-                {entry.observations.map((obs, idx) => (
-                  <div key={idx} className="flex items-start gap-3">
-                    <span className="text-accent dark:text-accent-dark font-bold shrink-0">
-                      0{idx + 1}.
-                    </span>
-                    <span className="font-sans text-xs sm:text-sm text-ink-primary dark:text-ink-primaryDark leading-relaxed">
-                      {obs}
-                    </span>
-                  </div>
-                ))}
-              </div>
-            </section>
-          )}
-
-          {/* RESULTS */}
-          {entry.results && entry.results.length > 0 && (
-            <section className="space-y-3">
-              <div className="flex items-center gap-2 font-mono text-xs font-semibold text-accent dark:text-accent-dark uppercase tracking-wider">
-                <CheckCircle2 className="w-4 h-4" />
-                <span>05 · Results & Measurements</span>
-              </div>
-              <h2 className="text-xl font-bold tracking-tight text-ink-primary dark:text-ink-primaryDark">
-                Empirical Takeaways
-              </h2>
-              <div className="rounded-lg border border-emerald-500/20 bg-emerald-500/5 p-5 space-y-2.5">
-                {entry.results.map((r, idx) => (
-                  <div key={idx} className="flex items-start gap-2.5 text-xs sm:text-sm text-ink-primary dark:text-ink-primaryDark">
-                    <CheckCircle2 className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5" />
-                    <span className="leading-relaxed">{r}</span>
-                  </div>
-                ))}
-              </div>
-            </section>
-          )}
-
-          {/* WHAT I LEARNED */}
-          {entry.keyInsights.length > 0 && (
-            <section className="space-y-3 pt-4 border-t border-borderLine-subtleLight dark:border-borderLine-subtleDark">
-              <div className="flex items-center gap-2 font-mono text-xs font-semibold text-accent dark:text-accent-dark uppercase tracking-wider">
-                <Lightbulb className="w-4 h-4" />
-                <span>06 · What I Learned</span>
-              </div>
-              <h2 className="text-xl font-bold tracking-tight text-ink-primary dark:text-ink-primaryDark">
-                Core Engineering Conclusions
-              </h2>
-              <div className="space-y-3">
-                {entry.keyInsights.map((insight, idx) => (
-                  <div
-                    key={idx}
-                    className="p-4 rounded-md border border-borderLine-light dark:border-borderLine-dark bg-surface-light dark:bg-surface-dark flex items-start gap-3 font-mono text-xs"
-                  >
-                    <span className="w-1.5 h-1.5 rounded-full bg-accent/60 mt-1.5 shrink-0" />
-                    <span className="font-sans text-xs sm:text-sm text-ink-secondary dark:text-ink-secondaryDark leading-relaxed">
-                      {insight}
-                    </span>
-                  </div>
-                ))}
-              </div>
-            </section>
-          )}
-
-          {/* RELATED PROJECT CARD */}
-          {relatedProject && (
-            <section className="pt-6 border-t border-borderLine-light dark:border-borderLine-dark">
-              <div className="rounded-lg border border-accent/20 dark:border-accent-dark/30 bg-accent/5 dark:bg-accent-dark/5 p-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-                <div className="space-y-1">
-                  <div className="flex items-center gap-2 font-mono text-xs text-accent dark:text-accent-dark font-semibold">
-                    <Link2 className="w-4 h-4" />
-                    <span>Related System · Case Study</span>
-                  </div>
-                  <h3 className="text-base font-bold text-ink-primary dark:text-ink-primaryDark">
-                    {relatedProject.title}
-                  </h3>
-                  <p className="text-xs text-ink-secondary dark:text-ink-secondaryDark max-w-xl">
-                    {relatedProject.subtitle}
+        {/* Observations (if completed) */}
+        {entry.observations && entry.observations.length > 0 && (
+          <section className="stone-panel p-6 space-y-3">
+            <span className="font-mono text-[10px] text-[#C5A059] uppercase tracking-wider block font-semibold">
+              03 · EMPIRICAL OBSERVATIONS
+            </span>
+            <div className="space-y-2.5">
+              {entry.observations.map((obs, idx) => (
+                <div key={idx} className="flex items-start gap-3 bg-[#080C12] p-3 border border-[#272A30]">
+                  <span className="font-mono text-xs text-[#C5A059] font-bold shrink-0 mt-0.5">
+                    [{idx + 1}]
+                  </span>
+                  <p className="font-sans text-xs text-[#E6DFD5] leading-relaxed">
+                    {obs}
                   </p>
                 </div>
+              ))}
+            </div>
+          </section>
+        )}
 
-                <Link to={`/projects/${relatedProject.slug}`}>
-                  <Button variant="primary" size="sm" className="gap-1.5 shrink-0">
-                    <span>Inspect Case Study</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
-                  </Button>
-                </Link>
-              </div>
-            </section>
-          )}
+        {/* Results (if completed) */}
+        {entry.results && entry.results.length > 0 && (
+          <section className="stone-panel p-6 space-y-3 border-l-4 border-l-[#C5A059]">
+            <span className="font-mono text-[10px] text-[#C5A059] uppercase tracking-wider block font-semibold">
+              04 · RESULTS &amp; VERIFIED OUTCOMES
+            </span>
+            <ul className="space-y-2">
+              {entry.results.map((res, idx) => (
+                <li key={idx} className="flex items-start gap-2.5 font-sans text-xs text-[#E6DFD5]">
+                  <CheckCircle2 className="w-4 h-4 text-[#C5A059] shrink-0 mt-0.5" />
+                  <span>{res}</span>
+                </li>
+              ))}
+            </ul>
+          </section>
+        )}
 
-          {/* Bottom Pagination */}
-          <div className="pt-8 border-t border-borderLine-light dark:border-borderLine-dark flex flex-col sm:flex-row items-center justify-between gap-4 font-mono text-xs">
-            {prevEntry ? (
-              <Link
-                to={`/engineering/${prevEntry.slug}`}
-                className="flex items-center gap-2 text-ink-secondary dark:text-ink-secondaryDark hover:text-accent dark:hover:text-accent-dark transition-colors group"
-              >
-                <ArrowLeft className="w-4 h-4 group-hover:-translate-x-0.5 transition-transform" />
-                <div>
-                  <div className="text-[10px] text-ink-muted dark:text-ink-mutedDark">
-                    PREVIOUS INVESTIGATION
-                  </div>
-                  <div className="font-semibold text-ink-primary dark:text-ink-primaryDark">
-                    {prevEntry.title}
-                  </div>
+        {/* Key Insights */}
+        {entry.keyInsights && entry.keyInsights.length > 0 && (
+          <section className="stone-panel p-6 space-y-3">
+            <div className="flex items-center gap-2">
+              <Lightbulb className="w-4 h-4 text-[#C5A059]" />
+              <span className="font-mono text-[10px] text-[#C5A059] uppercase tracking-wider font-semibold">
+                05 · ARCHITECTURAL INSIGHTS &amp; TAKEAWAYS
+              </span>
+            </div>
+            <div className="space-y-2 font-sans text-xs text-[#9A8F80]">
+              {entry.keyInsights.map((insight, idx) => (
+                <div key={idx} className="p-3 bg-[#080C12] border border-[#272A30] flex items-start gap-2.5">
+                  <span className="text-[#C5A059]">&bull;</span>
+                  <span className="text-[#E6DFD5]">{insight}</span>
                 </div>
-              </Link>
-            ) : (
-              <div />
-            )}
+              ))}
+            </div>
+          </section>
+        )}
 
-            {nextEntry ? (
-              <Link
-                to={`/engineering/${nextEntry.slug}`}
-                className="flex items-center gap-2 text-right text-ink-secondary dark:text-ink-secondaryDark hover:text-accent dark:hover:text-accent-dark transition-colors group ml-auto"
-              >
-                <div>
-                  <div className="text-[10px] text-ink-muted dark:text-ink-mutedDark">
-                    NEXT INVESTIGATION
-                  </div>
-                  <div className="font-semibold text-ink-primary dark:text-ink-primaryDark">
-                    {nextEntry.title}
-                  </div>
-                </div>
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
-              </Link>
-            ) : (
-              <div />
-            )}
+        {/* Code Snippet (if available) */}
+        {entry.codeSnippet && (
+          <section className="space-y-2">
+            <div className="flex items-center gap-2 text-xs font-mono text-[#8C6D46] pb-1">
+              <Code className="w-4 h-4 text-[#C5A059]" />
+              <span>SOURCE IMPLEMENTATION // {entry.codeSnippet.language.toUpperCase()}</span>
+            </div>
+            <CodeSnippet
+              code={entry.codeSnippet.code}
+              language={entry.codeSnippet.language}
+              caption={entry.codeSnippet.caption}
+            />
+          </section>
+        )}
+
+        {/* Related Project Link */}
+        {relatedProject && (
+          <div className="stone-panel p-5 border-l-4 border-l-[#C5A059] flex items-center justify-between gap-4">
+            <div>
+              <span className="font-mono text-[9px] text-[#8C6D46] uppercase block">
+                RELATED PRODUCTION SYSTEM
+              </span>
+              <h3 className="font-serif text-base font-bold text-[#E6DFD5] uppercase mt-0.5">
+                {relatedProject.title}
+              </h3>
+              <p className="font-sans text-xs text-[#9A8F80] mt-0.5">
+                {relatedProject.summary}
+              </p>
+            </div>
+            <Link
+              to={`/projects/${relatedProject.slug}`}
+              className="px-4 py-2 bg-[#C5A059] text-[#111319] hover:bg-[#E9C176] font-mono text-xs font-bold uppercase tracking-wider flex items-center gap-1.5 shrink-0"
+            >
+              <span>INSPECT</span>
+              <Layers className="w-3.5 h-3.5" />
+            </Link>
           </div>
-        </main>
-      </Container>
+        )}
+
+        {/* Prev / Next Navigation */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-6 border-t border-[#272A30]">
+          {prevEntry ? (
+            <Link
+              to={`/engineering/${prevEntry.slug}`}
+              className="stone-panel p-4 flex items-center gap-3 group hover:border-[#C5A059] transition-colors"
+            >
+              <ArrowLeft className="w-4 h-4 text-[#C5A059] group-hover:-translate-x-1 transition-transform" />
+              <div className="truncate">
+                <span className="font-mono text-[9px] text-[#8C6D46] uppercase block">PREVIOUS CODEX</span>
+                <span className="font-serif text-sm font-bold text-[#E6DFD5] truncate block uppercase">
+                  {prevEntry.title}
+                </span>
+              </div>
+            </Link>
+          ) : <div />}
+
+          {nextEntry && (
+            <Link
+              to={`/engineering/${nextEntry.slug}`}
+              className="stone-panel p-4 flex items-center justify-between group hover:border-[#C5A059] transition-colors"
+            >
+              <div className="truncate text-right w-full mr-3">
+                <span className="font-mono text-[9px] text-[#8C6D46] uppercase block">NEXT CODEX</span>
+                <span className="font-serif text-sm font-bold text-[#E6DFD5] truncate block uppercase">
+                  {nextEntry.title}
+                </span>
+              </div>
+              <ArrowRight className="w-4 h-4 text-[#C5A059] group-hover:translate-x-1 transition-transform shrink-0" />
+            </Link>
+          )}
+        </div>
+      </div>
     </div>
   );
 }

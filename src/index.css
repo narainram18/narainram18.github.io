@@ -23,22 +23,24 @@
   }
 
   .dark {
-    --bg-canvas: #0D0D0D;
-    --bg-surface: #141414;
-    --bg-surface-elevated: #1E1E1E;
-    --text-primary: #F3F3EF;
-    --text-secondary: #92928D;
-    --text-muted: #666663;
-    --border-line: #292929;
-    --border-subtle: #1F1F1F;
-    --accent: #38BDF8;
-    --accent-glow: rgba(56, 189, 248, 0.18);
+    --bg-canvas: #0C0F14;
+    --bg-surface: #161B22;
+    --bg-surface-elevated: #272A30;
+    --text-primary: #E6DFD5;
+    --text-secondary: #9A8F80;
+    --text-muted: #6E6B65;
+    --border-line: #272A30;
+    --border-subtle: #1E232A;
+    --accent: #C5A059;
+    --accent-glow: rgba(197, 160, 89, 0.18);
+    --secondary-bronze: #8C6D46;
+    --tertiary-ember: #D97736;
 
     /* Spatial Depth Surfaces */
-    --depth-0: #0D0D0D;
-    --depth-1: rgba(20, 20, 20, 0.82);
-    --depth-2: rgba(26, 26, 26, 0.90);
-    --depth-3: rgba(30, 30, 30, 0.96);
+    --depth-0: #0C0F14;
+    --depth-1: rgba(22, 27, 34, 0.85);
+    --depth-2: rgba(29, 32, 37, 0.92);
+    --depth-3: rgba(39, 42, 48, 0.97);
   }
 
   * {
@@ -47,30 +49,90 @@
 
   html {
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    background-color: #0C0F14;
   }
 
-  /* Fluid typography */
+  /* Monumental & Fluid typography */
+  .monumental-heading {
+    font-family: 'Noto Serif', Georgia, serif;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .runic-caps {
+    font-family: 'JetBrains Mono', monospace;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
   .hero-heading {
-    font-size: clamp(2.5rem, 6vw + 0.5rem, 5.25rem);
-    line-height: 1.05;
-    letter-spacing: -0.035em;
+    font-family: 'Noto Serif', Georgia, serif;
+    font-size: clamp(2.25rem, 5.5vw + 0.5rem, 4.5rem);
+    line-height: 1.08;
+    letter-spacing: 0.03em;
   }
 
   .section-heading {
+    font-family: 'Noto Serif', Georgia, serif;
     font-size: clamp(1.75rem, 3.5vw + 0.25rem, 2.75rem);
     line-height: 1.15;
-    letter-spacing: -0.025em;
+    letter-spacing: 0.025em;
   }
 
   .project-title {
+    font-family: 'Noto Serif', Georgia, serif;
     font-size: clamp(1.5rem, 2.5vw + 0.25rem, 2.25rem);
     line-height: 1.2;
-    letter-spacing: -0.02em;
+    letter-spacing: 0.02em;
   }
 }
 
-/* Selective Spatial Glass System */
+/* Norse Stone & Metallurgy Component Surfaces */
 @layer components {
+  /* Level 1: Standard Weathered Stone Panel with Top Edge Specular Highlight */
+  .stone-panel {
+    background-color: #161B22;
+    border: 1px solid #272A30;
+    box-shadow: inset 0 1px 0 0 rgba(197, 160, 89, 0.12), 0 4px 16px -2px rgba(0, 0, 0, 0.6);
+  }
+
+  /* Level 2: Interactive Stone Card */
+  .stone-card {
+    background-color: #1D2025;
+    border: 1px solid #272A30;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: inset 0 1px 0 0 rgba(197, 160, 89, 0.1), 0 6px 20px -4px rgba(0, 0, 0, 0.7);
+  }
+  .stone-card:hover {
+    border-color: #C5A059;
+    box-shadow: inset 0 1px 0 0 rgba(197, 160, 89, 0.25), 0 8px 24px -4px rgba(0, 0, 0, 0.8), 0 0 12px rgba(197, 160, 89, 0.15);
+  }
+
+  /* Level 3: Recessed Chamber / Terminal Obsidian Base */
+  .stone-recessed {
+    background-color: #080C12;
+    border: 1px solid rgba(39, 42, 48, 0.6);
+    box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.8);
+  }
+
+  /* Bronze Framed Monolith */
+  .bronze-frame {
+    border: 1px solid #8C6D46;
+    box-shadow: inset 0 1px 0 0 rgba(230, 192, 147, 0.2);
+  }
+
+  /* Tactical Chamfer (Top-Right & Bottom-Left cuts) */
+  .chamfer-notched {
+    clip-path: polygon(
+      0% 0%,
+      calc(100% - 10px) 0%,
+      100% 10px,
+      100% 100%,
+      10px 100%,
+      0% calc(100% - 10px)
+    );
+  }
+
   /* Level 1: Content Surface */
   .glass-surface {
     background-color: var(--depth-1);
@@ -94,8 +156,8 @@
     background-color: var(--depth-3);
     backdrop-filter: blur(24px) saturate(200%);
     -webkit-backdrop-filter: blur(24px) saturate(200%);
-    border: 1px solid var(--border-line);
-    box-shadow: 0 16px 36px -4px rgba(0, 0, 0, 0.15), 0 6px 12px -2px rgba(0, 0, 0, 0.08);
+    border: 1px solid #C5A059;
+    box-shadow: 0 16px 36px -4px rgba(0, 0, 0, 0.7), 0 0 20px rgba(197, 160, 89, 0.15);
   }
 }
 

@@ -1,610 +1,320 @@
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import {
+  User,
   ArrowRight,
-  Cpu,
-  Network,
-  Bot,
-  Binary,
-  Layers,
   GraduationCap,
-  Briefcase,
-  Mail,
-  Github,
-  Linkedin,
-  FileText,
-  Compass,
-  CheckCircle2,
-  Terminal,
-  ExternalLink,
-  ShieldAlert,
+  Cpu,
+  Hammer,
+  LayoutGrid,
 } from 'lucide-react';
-import { Container } from '@/components/layout/Container';
-import { PageHeader } from '@/components/layout/PageHeader';
-import { Button } from '@/components/ui/Button';
-import { Badge } from '@/components/ui/Badge';
-import { Reveal } from '@/components/ui/Reveal';
-import { SITE_CONFIG } from '@/lib/constants';
-import { EXPERIENCES, EDUCATION } from '@/data/experience';
 import { ABOUT_DATA } from '@/data/about';
-import { EngineeringWorkflow } from '@/components/about/EngineeringWorkflow';
+import { EDUCATION } from '@/data/experience';
 import { usePageMetadata } from '@/hooks/usePageMetadata';
 
 export function About() {
-  const primaryExperience = EXPERIENCES[0];
   const primaryEducation = EDUCATION[0];
 
   usePageMetadata(
-    'About — Narain Ram R M',
-    'Background, engineering philosophy, technical capability map, credentials, and active laboratory focus of Narain Ram R M, Software Engineer.'
+    'My Chamber // Philosophy & Trajectory — Narain Ram R M',
+    'Engineer philosophy, academic background at VIT Chennai, systems tenets, and engineering workflow of Narain Ram R M.'
   );
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, []);
 
-  const getCapabilityIcon = (id: string) => {
-    switch (id) {
-      case 'systems':
-        return <Cpu className="w-4 h-4 text-accent dark:text-accent-dark" />;
-      case 'networking':
-        return <Network className="w-4 h-4 text-accent dark:text-accent-dark" />;
-      case 'distributed':
-        return <Layers className="w-4 h-4 text-accent dark:text-accent-dark" />;
-      case 'robotics':
-        return <Bot className="w-4 h-4 text-accent dark:text-accent-dark" />;
-      case 'ai-ml':
-        return <Terminal className="w-4 h-4 text-accent dark:text-accent-dark" />;
-      case 'algorithms':
-        return <Binary className="w-4 h-4 text-accent dark:text-accent-dark" />;
-      default:
-        return <Cpu className="w-4 h-4 text-accent dark:text-accent-dark" />;
-    }
-  };
-
   return (
-    <div>
-      <PageHeader
-        label="About · Profile"
-        title="Background & Engineering Focus"
-        description="Software engineering, systems architecture, and foundational mechanics beneath high-level abstractions."
-      />
+    <div className="pt-24 pb-28 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full select-none">
+      {/* Top Location Breadcrumb */}
+      <div className="flex flex-col gap-1 pb-4">
+        <div className="flex items-center justify-between">
+          <div className="flex items-center gap-2">
+            <span className="text-[#C5A059] font-mono text-[11px] tracking-widest uppercase font-semibold">
+              LOCATION // MY CHAMBER [SYS-03]
+            </span>
+            <span className="w-1.5 h-1.5 rounded-full bg-[#E6DFD5] animate-pulse" />
+          </div>
+          <div className="flex items-center gap-1.5 bg-[#1D2025] px-2.5 py-0.5 border border-[#272A30] text-[10px] font-mono text-[#E6C093]">
+            <User className="w-3 h-3 text-[#C5A059]" />
+            <span>ENGINEER SANCTUM</span>
+          </div>
+        </div>
 
-      <Container size="lg" className="py-12 md:py-16 space-y-16 lg:space-y-24">
-        {/* ================================================== */}
-        {/* 01. HERO / IDENTITY */}
-        {/* ================================================== */}
-        <section aria-labelledby="identity-heading" className="space-y-8">
-          <Reveal>
-            <div className="space-y-4 max-w-4xl">
-              <div className="flex flex-wrap items-center gap-2 font-mono text-xs text-ink-muted dark:text-ink-mutedDark pb-2 border-b border-borderLine-subtleLight dark:border-borderLine-subtleDark">
-                <span className="font-semibold text-accent dark:text-accent-dark">
-                  01 · Identity & Trajectory
+        {/* Monumental Header Segment */}
+        <div className="relative bg-[#161B22] p-6 sm:p-8 border border-[#272A30] overflow-hidden shadow-2xl mt-2">
+          {/* Subtle Watermark */}
+          <div className="absolute -right-4 -bottom-4 opacity-10 pointer-events-none text-[#C5A059]">
+            <User className="w-48 h-48" />
+          </div>
+
+          <div className="flex flex-col relative z-10 max-w-3xl">
+            <div className="flex items-center gap-2 mb-1">
+              <span className="font-mono text-[#C5A059] tracking-widest text-[10px] uppercase font-semibold">
+                ᛋᚨᚾᚲᛏᚢᛗ // PHILOSOPHY &amp; TRAJECTORY
+              </span>
+            </div>
+            <h1 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-[#C5A059] tracking-wide uppercase font-bold">
+              MY CHAMBER
+            </h1>
+            <p className="font-sans text-sm sm:text-base text-[#9A8F80] mt-2 leading-relaxed">
+              Software engineering, systems architecture, and looking beneath high-level abstractions to reason about operating systems, networks, and memory.
+            </p>
+
+            {/* Academic Credential Ribbon */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 mt-5 bg-[#0B0E13]/80 p-3 border border-[#272A30]">
+              <div className="flex flex-col">
+                <span className="font-mono text-[9px] text-[#9A8F80] uppercase tracking-wider">
+                  Academic Base
                 </span>
-                <span>·</span>
-                <span>VIT CHENNAI '27</span>
-                <span>·</span>
-                <span className="text-emerald-600 dark:text-emerald-400 font-semibold">
-                  CGPA {ABOUT_DATA.identity.metadata.cgpa}
+                <span className="font-mono text-xs sm:text-sm text-[#E6DFD5] font-semibold mt-0.5">
+                  VIT Chennai
                 </span>
               </div>
-
-              <h1
-                id="identity-heading"
-                className="hero-heading font-bold text-ink-primary dark:text-ink-primaryDark tracking-tight"
-              >
-                {ABOUT_DATA.identity.lead}
-              </h1>
-
-              <div className="space-y-4 text-base sm:text-lg text-ink-secondary dark:text-ink-secondaryDark leading-relaxed">
-                {ABOUT_DATA.identity.paragraphs.map((p, idx) => (
-                  <p key={idx}>{p}</p>
-                ))}
+              <div className="flex flex-col">
+                <span className="font-mono text-[9px] text-[#9A8F80] uppercase tracking-wider">
+                  Degree &amp; Specialization
+                </span>
+                <span className="font-mono text-xs sm:text-sm text-[#C5A059] font-semibold mt-0.5 truncate">
+                  B.Tech CSE (AI &amp; Robotics)
+                </span>
+              </div>
+              <div className="flex flex-col">
+                <span className="font-mono text-[9px] text-[#9A8F80] uppercase tracking-wider">
+                  Graduation Class
+                </span>
+                <span className="font-mono text-xs sm:text-sm text-[#E6C093] font-semibold mt-0.5">
+                  Class of 2027 · CGPA 7.9
+                </span>
               </div>
             </div>
-          </Reveal>
+          </div>
+        </div>
+      </div>
 
-          {/* Contextual Spatial Metadata Strip */}
-          <Reveal delay={100}>
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 p-4 rounded-xl glass-surface border border-borderLine-light dark:border-borderLine-dark font-mono text-xs">
-              <div>
-                <span className="text-ink-muted dark:text-ink-mutedDark text-[10px] uppercase">
-                  Location
-                </span>
-                <div className="font-semibold text-ink-primary dark:text-ink-primaryDark mt-0.5">
-                  {ABOUT_DATA.identity.metadata.location}
-                </div>
-              </div>
-              <div>
-                <span className="text-ink-muted dark:text-ink-mutedDark text-[10px] uppercase">
-                  Institution
-                </span>
-                <div className="font-semibold text-ink-primary dark:text-ink-primaryDark mt-0.5">
-                  {ABOUT_DATA.identity.metadata.institution}
-                </div>
-              </div>
-              <div>
-                <span className="text-ink-muted dark:text-ink-mutedDark text-[10px] uppercase">
-                  Graduation
-                </span>
-                <div className="font-semibold text-ink-primary dark:text-ink-primaryDark mt-0.5">
-                  {ABOUT_DATA.identity.metadata.graduation}
-                </div>
-              </div>
-              <div>
-                <span className="text-ink-muted dark:text-ink-mutedDark text-[10px] uppercase">
-                  Degree
-                </span>
-                <div className="font-semibold text-ink-primary dark:text-ink-primaryDark mt-0.5 truncate">
-                  B.Tech CSE (AI & Robotics)
-                </div>
-              </div>
-              <div>
-                <span className="text-ink-muted dark:text-ink-mutedDark text-[10px] uppercase">
-                  Academic Record
-                </span>
-                <div className="font-semibold text-emerald-600 dark:text-emerald-400 mt-0.5">
-                  CGPA {ABOUT_DATA.identity.metadata.cgpa}
-                </div>
-              </div>
-              <div>
-                <span className="text-ink-muted dark:text-ink-mutedDark text-[10px] uppercase">
-                  Core Focus
-                </span>
-                <div className="font-semibold text-accent dark:text-accent-dark mt-0.5 truncate">
-                  Systems & Software
-                </div>
-              </div>
-            </div>
-          </Reveal>
-        </section>
-
-        {/* ================================================== */}
-        {/* 02. ENGINEERING PHILOSOPHY */}
-        {/* ================================================== */}
-        <section aria-labelledby="philosophy-heading" className="space-y-6 pt-6 border-t border-borderLine-subtleLight dark:border-borderLine-subtleDark">
-          <Reveal>
-            <div className="space-y-1">
-              <div className="font-mono text-xs font-semibold text-accent dark:text-accent-dark uppercase tracking-wider">
-                02 · Engineering Philosophy
-              </div>
-              <h2
-                id="philosophy-heading"
-                className="text-2xl font-bold tracking-tight text-ink-primary dark:text-ink-primaryDark"
-              >
-                Principles That Guide How I Reason About Systems
+      {/* Main Chamber Content Flow */}
+      <div className="space-y-12 mt-6">
+        {/* ============================================================== */}
+        {/* 01. IDENTITY & CORE PRACTICE                                  */}
+        {/* ============================================================== */}
+        <section className="space-y-4">
+          <div className="flex items-center justify-between pb-2 border-b border-[#272A30]">
+            <div className="flex items-center gap-2">
+              <span className="font-mono text-sm text-[#C5A059] font-bold">[01]</span>
+              <h2 className="font-serif text-lg sm:text-xl font-bold text-[#E6DFD5] uppercase tracking-wide">
+                ENGINEERING IDENTITY &amp; CORE FOCUS
               </h2>
-              <p className="text-xs sm:text-sm text-ink-secondary dark:text-ink-secondaryDark max-w-2xl">
-                Real software engineering happens beneath frameworks. These principles govern how I model architectures, evaluate trade-offs, and debug failures.
-              </p>
             </div>
-          </Reveal>
+            <span className="font-mono text-[10px] text-[#8C6D46] uppercase">
+              BELOW THE ABSTRACTION
+            </span>
+          </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {ABOUT_DATA.principles.map((principle, idx) => (
-              <Reveal key={principle.number} delay={idx * 60}>
-                <div className="h-full rounded-xl glass-surface p-6 border border-borderLine-light dark:border-borderLine-dark hover:border-ink-secondary/40 dark:hover:border-ink-secondaryDark/40 transition-all duration-200 hover:-translate-y-0.5 flex flex-col justify-between space-y-3">
-                  <div className="space-y-2">
-                    <div className="flex items-center gap-2 font-mono text-xs">
-                      <span className="text-accent dark:text-accent-dark font-bold">
-                        {principle.number} · Principle
-                      </span>
-                    </div>
-                    <h3 className="font-bold text-base text-ink-primary dark:text-ink-primaryDark tracking-tight leading-snug">
-                      {principle.title}
-                    </h3>
-                    <p className="text-xs sm:text-sm font-medium text-ink-secondary dark:text-ink-secondaryDark leading-relaxed">
-                      "{principle.statement}"
-                    </p>
-                  </div>
+          <div className="stone-panel p-6 sm:p-8 space-y-4">
+            <h3 className="font-serif text-xl sm:text-2xl text-[#C5A059] font-bold uppercase">
+              {ABOUT_DATA.identity.lead}
+            </h3>
 
-                  <p className="text-xs text-ink-muted dark:text-ink-mutedDark leading-relaxed pt-2 border-t border-borderLine-subtleLight dark:border-borderLine-subtleDark">
-                    {principle.rationale}
+            <div className="space-y-3 font-sans text-sm sm:text-base text-[#9A8F80] leading-relaxed">
+              {ABOUT_DATA.identity.paragraphs.map((p, idx) => (
+                <p key={idx}>{p}</p>
+              ))}
+            </div>
+
+            {/* Academic Highlight Card */}
+            <div className="bg-[#080C12] p-5 border border-[#272A30] mt-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+              <div className="flex items-start gap-3.5">
+                <div className="w-10 h-10 bg-[#1D2025] border border-[#C5A059] flex items-center justify-center text-[#C5A059] shrink-0 mt-0.5">
+                  <GraduationCap className="w-5 h-5" />
+                </div>
+                <div>
+                  <span className="font-mono text-[9px] text-[#8C6D46] uppercase block">
+                    INSTITUTIONAL FOUNDATION
+                  </span>
+                  <h4 className="font-serif text-base font-bold text-[#E6DFD5] uppercase">
+                    {primaryEducation.institution}
+                  </h4>
+                  <p className="font-sans text-xs text-[#9A8F80] mt-0.5">
+                    {primaryEducation.degree} · {primaryEducation.period}
                   </p>
                 </div>
-              </Reveal>
+              </div>
+
+              <span className="font-mono text-xs text-[#C5A059] bg-[#161B22] px-3 py-1 border border-[#272A30] shrink-0 font-semibold">
+                {primaryEducation.score}
+              </span>
+            </div>
+          </div>
+        </section>
+
+        {/* ============================================================== */}
+        {/* 02. CORE PRINCIPLES                                           */}
+        {/* ============================================================== */}
+        <section className="space-y-4">
+          <div className="flex items-center justify-between pb-2 border-b border-[#272A30]">
+            <div className="flex items-center gap-2">
+              <span className="font-mono text-sm text-[#C5A059] font-bold">[02]</span>
+              <h2 className="font-serif text-lg sm:text-xl font-bold text-[#E6DFD5] uppercase tracking-wide">
+                ENGINEERING PRINCIPLES
+              </h2>
+            </div>
+            <span className="font-mono text-[10px] text-[#8C6D46] uppercase">
+              3 FOUNDATIONAL TENETS
+            </span>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {ABOUT_DATA.principles.map((pr) => (
+              <div
+                key={pr.number}
+                className="stone-panel p-6 flex flex-col justify-between border-t-2 border-t-[#C5A059]"
+              >
+                <div className="space-y-3">
+                  <div className="flex items-center justify-between">
+                    <span className="font-mono text-xs text-[#C5A059] font-bold">
+                      TENET {pr.number}
+                    </span>
+                    <span className="font-mono text-xs text-[#8C6D46]">ᛟ</span>
+                  </div>
+
+                  <h3 className="font-serif text-base font-bold text-[#E6DFD5] uppercase leading-snug">
+                    {pr.title}
+                  </h3>
+
+                  <div className="bg-[#080C12] p-3 border border-[#272A30] font-sans text-xs text-[#E6C093] font-medium leading-relaxed">
+                    "{pr.statement}"
+                  </div>
+
+                  <p className="font-sans text-xs text-[#9A8F80] leading-relaxed">
+                    {pr.rationale}
+                  </p>
+                </div>
+              </div>
             ))}
           </div>
         </section>
 
-        {/* ================================================== */}
-        {/* 03. WHAT I WORK ON (Capability Map) */}
-        {/* ================================================== */}
-        <section aria-labelledby="capabilities-heading" className="space-y-6 pt-6 border-t border-borderLine-subtleLight dark:border-borderLine-subtleDark">
-          <Reveal>
-            <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
-              <div className="space-y-1">
-                <div className="font-mono text-xs font-semibold text-accent dark:text-accent-dark uppercase tracking-wider">
-                  03 · Capability Map
-                </div>
-                <h2
-                  id="capabilities-heading"
-                  className="text-2xl font-bold tracking-tight text-ink-primary dark:text-ink-primaryDark"
-                >
-                  Technical Focus Areas
-                </h2>
-                <p className="text-xs sm:text-sm text-ink-secondary dark:text-ink-secondaryDark max-w-2xl">
-                  An editorial map of the disciplines and mechanisms I build with, grounded in verified project and engineering implementations.
-                </p>
-              </div>
-
-              <Link to="/projects" className="shrink-0 font-mono text-xs text-accent hover:underline flex items-center gap-1">
-                <span>View Realized Systems</span>
-                <ArrowRight className="w-3.5 h-3.5" />
-              </Link>
+        {/* ============================================================== */}
+        {/* 03. CAPABILITIES MAP                                          */}
+        {/* ============================================================== */}
+        <section className="space-y-4">
+          <div className="flex items-center justify-between pb-2 border-b border-[#272A30]">
+            <div className="flex items-center gap-2">
+              <span className="font-mono text-sm text-[#C5A059] font-bold">[03]</span>
+              <h2 className="font-serif text-lg sm:text-xl font-bold text-[#E6DFD5] uppercase tracking-wide">
+                SYSTEM CAPABILITIES &amp; SPECIALIZATIONS
+              </h2>
             </div>
-          </Reveal>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {ABOUT_DATA.capabilities.map((cap, idx) => (
-              <Reveal key={cap.id} delay={idx * 50}>
-                <div className="h-full rounded-xl glass-surface p-6 border border-borderLine-light dark:border-borderLine-dark hover:border-ink-secondary/40 dark:hover:border-ink-secondaryDark/40 transition-all duration-200 hover:-translate-y-0.5 flex flex-col justify-between space-y-4">
-                  <div className="space-y-3">
-                    <div className="flex items-center gap-2.5">
-                      <div className="p-2 rounded-lg bg-surface-elevatedLight dark:bg-surface-elevatedDark border border-borderLine-light dark:border-borderLine-dark shrink-0">
-                        {getCapabilityIcon(cap.id)}
-                      </div>
-                      <div>
-                        <h3 className="font-bold text-base text-ink-primary dark:text-ink-primaryDark tracking-tight">
-                          {cap.title}
-                        </h3>
-                        <span className="font-mono text-[10px] text-ink-muted dark:text-ink-mutedDark uppercase">
-                          {cap.id.toUpperCase()}
-                        </span>
-                      </div>
-                    </div>
-
-                    <p className="text-xs text-ink-secondary dark:text-ink-secondaryDark leading-relaxed">
-                      {cap.description}
-                    </p>
-                  </div>
-
-                  <div className="pt-3 border-t border-borderLine-subtleLight dark:border-borderLine-subtleDark space-y-1.5 font-mono text-xs">
-                    {cap.topics.map((topic, tIdx) => (
-                      <div
-                        key={tIdx}
-                        className="flex items-start gap-2 text-ink-primary dark:text-ink-primaryDark text-[11px]"
-                      >
-                        <span className="w-1.5 h-1.5 rounded-full bg-accent/60 mt-1 shrink-0" />
-                        <span className="leading-tight">{topic}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </Reveal>
-            ))}
+            <span className="font-mono text-[10px] text-[#8C6D46] uppercase">
+              {ABOUT_DATA.capabilities.length} DOMAINS
+            </span>
           </div>
-        </section>
-
-        {/* ================================================== */}
-        {/* 04. HOW I BUILD (Visual Engineering Workflow) */}
-        {/* ================================================== */}
-        <section aria-labelledby="workflow-heading" className="space-y-6 pt-6 border-t border-borderLine-subtleLight dark:border-borderLine-subtleDark">
-          <Reveal>
-            <div className="space-y-1">
-              <div className="font-mono text-xs font-semibold text-accent dark:text-accent-dark uppercase tracking-wider">
-                04 · How I Build
-              </div>
-              <h2
-                id="workflow-heading"
-                className="text-2xl font-bold tracking-tight text-ink-primary dark:text-ink-primaryDark"
-              >
-                The Engineering Pipeline
-              </h2>
-              <p className="text-xs sm:text-sm text-ink-secondary dark:text-ink-secondaryDark max-w-2xl">
-                A disciplined lifecycle: moving from mathematical and operational constraints to implementation, empirical benchmarking, and rigorous stress testing.
-              </p>
-            </div>
-          </Reveal>
-
-          <Reveal delay={100}>
-            <EngineeringWorkflow stages={ABOUT_DATA.workflow} />
-          </Reveal>
-        </section>
-
-        {/* ================================================== */}
-        {/* 05. EXPERIENCE & EDUCATION */}
-        {/* ================================================== */}
-        <section aria-labelledby="credentials-heading" className="space-y-6 pt-6 border-t border-borderLine-subtleLight dark:border-borderLine-subtleDark">
-          <Reveal>
-            <div className="space-y-1">
-              <div className="font-mono text-xs font-semibold text-accent dark:text-accent-dark uppercase tracking-wider">
-                05 · Industry & Academic Credentials
-              </div>
-              <h2
-                id="credentials-heading"
-                className="text-2xl font-bold tracking-tight text-ink-primary dark:text-ink-primaryDark"
-              >
-                Experience & Formal Education
-              </h2>
-            </div>
-          </Reveal>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch">
-            {/* Experience Card */}
-            <Reveal delay={50}>
-              <div className="h-full rounded-xl glass-panel p-6 sm:p-7 border border-borderLine-light dark:border-borderLine-dark flex flex-col justify-between space-y-5">
-                <div className="space-y-4">
-                  <div className="flex items-center justify-between font-mono text-xs pb-3 border-b border-borderLine-subtleLight dark:border-borderLine-subtleDark">
-                    <div className="flex items-center gap-2 text-accent dark:text-accent-dark font-medium">
-                      <Briefcase className="w-4 h-4" />
-                      <span>ENGINEERING INTERNSHIP</span>
-                    </div>
-                    <span className="text-ink-muted dark:text-ink-mutedDark">
-                      {primaryExperience.period}
-                    </span>
-                  </div>
-
-                  <div>
-                    <h3 className="font-bold text-lg text-ink-primary dark:text-ink-primaryDark">
-                      {primaryExperience.role}
-                    </h3>
-                    <div className="text-xs sm:text-sm text-ink-secondary dark:text-ink-secondaryDark font-medium mt-0.5">
-                      {primaryExperience.company} · {primaryExperience.location}
-                    </div>
-                  </div>
-
-                  <ul className="space-y-2 text-xs sm:text-sm text-ink-secondary dark:text-ink-secondaryDark leading-relaxed">
-                    {primaryExperience.responsibilities.slice(0, 4).map((resp, idx) => (
-                      <li key={idx} className="flex items-start gap-2.5">
-                        <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500 shrink-0 mt-1" />
-                        <span>{resp}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                <div className="pt-4 border-t border-borderLine-subtleLight dark:border-borderLine-subtleDark flex flex-wrap gap-1.5">
-                  {primaryExperience.technologies.map((tech) => (
-                    <Badge key={tech} variant="default" className="text-[10px]">
-                      {tech}
-                    </Badge>
-                  ))}
-                </div>
-              </div>
-            </Reveal>
-
-            {/* Education Card */}
-            <Reveal delay={100}>
-              <div className="h-full rounded-xl glass-panel p-6 sm:p-7 border border-borderLine-light dark:border-borderLine-dark flex flex-col justify-between space-y-5">
-                <div className="space-y-4">
-                  <div className="flex items-center justify-between font-mono text-xs pb-3 border-b border-borderLine-subtleLight dark:border-borderLine-subtleDark">
-                    <div className="flex items-center gap-2 text-accent dark:text-accent-dark font-medium">
-                      <GraduationCap className="w-4 h-4" />
-                      <span>FORMAL EDUCATION</span>
-                    </div>
-                    <span className="text-emerald-600 dark:text-emerald-400 font-semibold">
-                      {primaryEducation.score}
-                    </span>
-                  </div>
-
-                  <div>
-                    <h3 className="font-bold text-lg text-ink-primary dark:text-ink-primaryDark">
-                      {primaryEducation.degree}
-                    </h3>
-                    <div className="text-xs sm:text-sm text-ink-secondary dark:text-ink-secondaryDark font-medium mt-0.5">
-                      {primaryEducation.institution} · {primaryEducation.period}
-                    </div>
-                  </div>
-
-                  <div className="space-y-3 font-sans text-xs sm:text-sm text-ink-secondary dark:text-ink-secondaryDark leading-relaxed">
-                    <p>
-                      Comprehensive technical coursework covering core computer science disciplines: Operating Systems, Computer Networks, Database Management Systems, Data Structures & Algorithms, and System Design.
-                    </p>
-                    <p>
-                      Specialized engineering track in Robot Operating System (ROS 2), Autonomous Mobile Navigation, Path Planning, and Applied Machine Learning.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="pt-4 border-t border-borderLine-subtleLight dark:border-borderLine-subtleDark flex items-center justify-between font-mono text-xs">
-                  <span className="text-ink-muted dark:text-ink-mutedDark">Class of 2027</span>
-                  <span className="text-ink-primary dark:text-ink-primaryDark font-medium">
-                    Chennai, India
-                  </span>
-                </div>
-              </div>
-            </Reveal>
-          </div>
-        </section>
-
-        {/* ================================================== */}
-        {/* 06. CURRENTLY EXPLORING (Current Lab) */}
-        {/* ================================================== */}
-        <section aria-labelledby="exploring-heading" className="space-y-6 pt-6 border-t border-borderLine-subtleLight dark:border-borderLine-subtleDark">
-          <Reveal>
-            <div className="space-y-1">
-              <div className="flex items-center gap-2 font-mono text-xs font-semibold text-accent dark:text-accent-dark uppercase tracking-wider">
-                <Compass className="w-4 h-4" />
-                <span>06 · Current Lab & Investigations</span>
-              </div>
-              <h2
-                id="exploring-heading"
-                className="text-2xl font-bold tracking-tight text-ink-primary dark:text-ink-primaryDark"
-              >
-                What I Am Actively Studying
-              </h2>
-              <p className="text-xs sm:text-sm text-ink-secondary dark:text-ink-secondaryDark max-w-2xl">
-                These represent active learning trajectories and benchmark experiments currently in design, explicitly distinguished from completed production expertise.
-              </p>
-            </div>
-          </Reveal>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {ABOUT_DATA.exploring.map((topic, idx) => (
-              <Reveal key={topic.id} delay={idx * 50}>
-                <div className="h-full rounded-xl glass-surface p-5 border border-borderLine-light dark:border-borderLine-dark hover:border-ink-secondary/30 dark:hover:border-ink-secondaryDark/30 transition-all duration-150 flex flex-col justify-between space-y-3">
-                  <div className="space-y-2">
-                    <div className="flex items-center justify-between font-mono text-[10px]">
-                      <span className="text-accent dark:text-accent-dark font-bold">
-                        {topic.label}
-                      </span>
-                      <span
-                        className={`px-1.5 py-0.5 rounded font-mono text-[9px] ${
-                          topic.status === 'BENCHMARKING'
-                            ? 'bg-amber-500/10 text-amber-600 dark:text-amber-400 font-semibold'
-                            : topic.status === 'EXPLORING'
-                            ? 'bg-sky-500/10 text-sky-600 dark:text-sky-400 font-semibold'
-                            : 'bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 font-semibold'
-                        }`}
-                      >
-                        {topic.status}
-                      </span>
-                    </div>
-
-                    <h3 className="font-bold text-sm text-ink-primary dark:text-ink-primaryDark leading-snug">
-                      {topic.title}
-                    </h3>
-
-                    <p className="text-xs text-ink-secondary dark:text-ink-secondaryDark leading-relaxed">
-                      {topic.description}
-                    </p>
-                  </div>
-
-                  <div className="pt-2 border-t border-borderLine-subtleLight dark:border-borderLine-subtleDark flex items-center justify-between font-mono text-[10px] text-ink-muted dark:text-ink-mutedDark">
-                    <span>STATUS: IN PROGRESS</span>
-                    <Link
-                      to="/engineering"
-                      className="text-accent hover:underline flex items-center gap-1 font-medium"
-                    >
-                      <span>Lab Notes</span>
-                      <ArrowRight className="w-2.5 h-2.5" />
-                    </Link>
-                  </div>
+            {ABOUT_DATA.capabilities.map((cap) => (
+              <div key={cap.id} className="stone-card p-5 space-y-2.5">
+                <div className="flex items-center gap-2 text-[#C5A059]">
+                  <Cpu className="w-4 h-4" />
+                  <h3 className="font-serif text-sm font-bold text-[#E6DFD5] uppercase">
+                    {cap.title}
+                  </h3>
                 </div>
-              </Reveal>
+
+                <p className="font-sans text-xs text-[#9A8F80] leading-relaxed">
+                  {cap.description}
+                </p>
+
+                <div className="flex flex-wrap gap-1 pt-2">
+                  {cap.topics.map((t) => (
+                    <span
+                      key={t}
+                      className="font-mono text-[9px] px-2 py-0.5 bg-[#080C12] text-[#E6C093] border border-[#272A30]"
+                    >
+                      {t}
+                    </span>
+                  ))}
+                </div>
+              </div>
             ))}
           </div>
         </section>
 
-        {/* ================================================== */}
-        {/* 07. PERSONAL ENGINEERING PROFILE */}
-        {/* ================================================== */}
-        <section aria-labelledby="profile-heading" className="pt-6 border-t border-borderLine-subtleLight dark:border-borderLine-subtleDark">
-          <Reveal>
-            <div className="rounded-xl glass-panel p-6 sm:p-10 border border-borderLine-light dark:border-borderLine-dark space-y-8">
-              <div className="space-y-3 max-w-3xl">
-                <div className="font-mono text-xs font-semibold text-accent dark:text-accent-dark uppercase tracking-wider">
-                  07 · Identity Formation
+        {/* ============================================================== */}
+        {/* 04. ENGINEERING WORKFLOW                                      */}
+        {/* ============================================================== */}
+        <section className="space-y-4">
+          <div className="flex items-center justify-between pb-2 border-b border-[#272A30]">
+            <div className="flex items-center gap-2">
+              <span className="font-mono text-sm text-[#C5A059] font-bold">[04]</span>
+              <h2 className="font-serif text-lg sm:text-xl font-bold text-[#E6DFD5] uppercase tracking-wide">
+                ENGINEERING WORKFLOW
+              </h2>
+            </div>
+            <span className="font-mono text-[10px] text-[#8C6D46] uppercase">
+              PRACTICE &amp; EXECUTION
+            </span>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {ABOUT_DATA.workflow.map((wf) => (
+              <div key={wf.id} className="stone-panel p-5 space-y-2 border-l-2 border-l-[#C5A059]">
+                <div className="flex items-center justify-between">
+                  <span className="font-mono text-xs text-[#C5A059] font-bold">
+                    STAGE {wf.number}
+                  </span>
+                  <span className="font-serif text-sm font-bold text-[#E6DFD5] uppercase">
+                    {wf.title}
+                  </span>
                 </div>
-                <h2
-                  id="profile-heading"
-                  className="text-2xl sm:text-3xl font-bold tracking-tight text-ink-primary dark:text-ink-primaryDark"
-                >
-                  {ABOUT_DATA.profile.heading}
-                </h2>
-                <p className="text-sm sm:text-base font-medium text-ink-secondary dark:text-ink-secondaryDark">
-                  {ABOUT_DATA.profile.subheading}
+                <p className="font-sans text-xs text-[#E6C093] font-medium">
+                  {wf.summary}
                 </p>
-              </div>
-
-              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-                {/* Narrative */}
-                <div className="lg:col-span-7 space-y-4 text-xs sm:text-sm text-ink-secondary dark:text-ink-secondaryDark leading-relaxed">
-                  {ABOUT_DATA.profile.paragraphs.map((p, idx) => (
-                    <p key={idx}>{p}</p>
-                  ))}
-
-                  <div className="pt-2">
-                    <div className="p-3.5 rounded-lg bg-surface-elevatedLight/50 dark:bg-surface-elevatedDark/50 border border-borderLine-subtleLight dark:border-borderLine-subtleDark font-mono text-xs flex items-start gap-2.5 text-ink-primary dark:text-ink-primaryDark">
-                      <ShieldAlert className="w-4 h-4 text-accent shrink-0 mt-0.5" />
-                      <span className="leading-relaxed">
-                        I value building things deeply from foundational computer science over collecting superficial certificates or framework buzzwords.
-                      </span>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Pillars */}
-                <div className="lg:col-span-5 space-y-3 font-mono text-xs">
-                  {ABOUT_DATA.profile.pillars.map((pillar, idx) => (
-                    <div
-                      key={idx}
-                      className="p-3.5 rounded-lg glass-surface border border-borderLine-subtleLight dark:border-borderLine-subtleDark space-y-1"
+                <p className="font-sans text-xs text-[#9A8F80] leading-relaxed">
+                  {wf.details}
+                </p>
+                <div className="pt-2 flex flex-wrap gap-1.5 border-t border-[#272A30]">
+                  {wf.deliverables.map((d) => (
+                    <span
+                      key={d}
+                      className="font-mono text-[9px] text-[#9A8F80] bg-[#080C12] px-2 py-0.5 border border-[#272A30]"
                     >
-                      <div className="font-semibold text-accent dark:text-accent-dark flex items-center gap-1.5">
-                        <span>0{idx + 1}.</span>
-                        <span>{pillar.label.toUpperCase()}</span>
-                      </div>
-                      <p className="text-[11px] font-sans text-ink-secondary dark:text-ink-secondaryDark leading-relaxed pl-4">
-                        {pillar.detail}
-                      </p>
-                    </div>
+                      &check; {d}
+                    </span>
                   ))}
                 </div>
               </div>
-            </div>
-          </Reveal>
+            ))}
+          </div>
         </section>
 
-        {/* ================================================== */}
-        {/* 08. MINIMAL TECHNICAL CTA / CONTACT */}
-        {/* ================================================== */}
-        <section aria-labelledby="cta-heading" className="pt-6 border-t border-borderLine-subtleLight dark:border-borderLine-subtleDark">
-          <Reveal>
-            <div className="rounded-xl glass-surface p-6 sm:p-8 border border-borderLine-light dark:border-borderLine-dark flex flex-col md:flex-row md:items-center justify-between gap-6 shadow-sm">
-              <div className="space-y-2 max-w-xl">
-                <div className="font-mono text-xs font-semibold text-accent dark:text-accent-dark uppercase tracking-wider">
-                  08 · Get In Touch
-                </div>
-                <h2
-                  id="cta-heading"
-                  className="text-xl sm:text-2xl font-bold tracking-tight text-ink-primary dark:text-ink-primaryDark"
-                >
-                  {ABOUT_DATA.cta.heading}
-                </h2>
-                <p className="text-xs sm:text-sm text-ink-secondary dark:text-ink-secondaryDark leading-relaxed">
-                  {ABOUT_DATA.cta.statement}
-                </p>
-              </div>
+        {/* Quick Citadels Navigation */}
+        <div className="pt-8 border-t border-[#272A30] flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div className="flex items-center gap-3">
+            <Link
+              to="/projects"
+              className="px-5 py-2.5 bg-[#161B22] hover:bg-[#1D2025] border border-[#272A30] text-[#E6DFD5] font-mono text-xs uppercase tracking-wider flex items-center gap-2 transition-colors"
+            >
+              <Hammer className="w-3.5 h-3.5 text-[#C5A059]" />
+              <span>VISIT THE FORGE</span>
+            </Link>
+            <Link
+              to="/inventory"
+              className="px-5 py-2.5 bg-[#161B22] hover:bg-[#1D2025] border border-[#272A30] text-[#E6DFD5] font-mono text-xs uppercase tracking-wider flex items-center gap-2 transition-colors"
+            >
+              <LayoutGrid className="w-3.5 h-3.5 text-[#D97736]" />
+              <span>INVENTORY</span>
+            </Link>
+          </div>
 
-              <div className="flex flex-wrap items-center gap-3 shrink-0 font-mono text-xs">
-                <a href={`mailto:${SITE_CONFIG.email}`}>
-                  <Button variant="primary" size="sm" className="gap-2">
-                    <Mail className="w-3.5 h-3.5" />
-                    <span>Send Email</span>
-                  </Button>
-                </a>
-
-                <a
-                  href={SITE_CONFIG.githubUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Button variant="outline" size="sm" className="gap-1.5">
-                    <Github className="w-3.5 h-3.5" />
-                    <span>GitHub</span>
-                    <ExternalLink className="w-3 h-3 text-ink-muted dark:text-ink-mutedDark" />
-                  </Button>
-                </a>
-
-                <a
-                  href={SITE_CONFIG.linkedinUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Button variant="outline" size="sm" className="gap-1.5">
-                    <Linkedin className="w-3.5 h-3.5" />
-                    <span>LinkedIn</span>
-                    <ExternalLink className="w-3 h-3 text-ink-muted dark:text-ink-mutedDark" />
-                  </Button>
-                </a>
-
-                <a
-                  href={SITE_CONFIG.resumeUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Button variant="glass" size="sm" className="gap-1.5">
-                    <FileText className="w-3.5 h-3.5 text-accent" />
-                    <span>Resume (PDF)</span>
-                  </Button>
-                </a>
-              </div>
-            </div>
-          </Reveal>
-        </section>
-      </Container>
+          <Link
+            to="/archive"
+            className="px-6 py-2.5 bg-[#C5A059] text-[#111319] hover:bg-[#E9C176] font-mono text-xs font-bold uppercase tracking-wider flex items-center gap-2 transition-colors"
+          >
+            <span>THE ARCHIVE (RESUME)</span>
+            <ArrowRight className="w-4 h-4" />
+          </Link>
+        </div>
+      </div>
     </div>
   );
 }

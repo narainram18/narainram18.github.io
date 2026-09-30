@@ -5,17 +5,19 @@ import {
   X,
   FolderGit2,
   FileCode2,
-  Terminal,
-  ExternalLink,
-  Sun,
-  Moon,
+  Castle,
+  Map as MapIcon,
+  Hammer,
+  BookOpen,
+  LayoutGrid,
+  User,
+  FileText,
+  Radio,
   ArrowRight,
-  Sparkles,
 } from 'lucide-react';
-import { SITE_CONFIG } from '@/lib/constants';
 import { PROJECTS } from '@/data/projects';
 import { ENGINEERING_ENTRIES } from '@/data/engineering';
-import { useTheme } from '@/hooks/useTheme';
+import { useRealmMode } from '@/context/RealmModeContext';
 import { useCommandPalette } from '@/context/CommandPaletteContext';
 
 export function GlobalCommandPalette() {
@@ -25,7 +27,7 @@ export function GlobalCommandPalette() {
 
 interface CommandItem {
   id: string;
-  category: 'Navigation' | 'Projects' | 'Engineering' | 'External' | 'Preferences';
+  category: 'Citadels' | 'Projects' | 'Codices' | 'Settings';
   title: string;
   detail?: string;
   action: () => void;
@@ -42,51 +44,95 @@ export function CommandPalette({ isOpen, onClose }: CommandPaletteProps) {
   const [selectedIndex, setSelectedIndex] = useState(0);
   const inputRef = useRef<HTMLInputElement>(null);
   const navigate = useNavigate();
-  const { theme, toggleTheme } = useTheme();
+  const { viewMode, toggleViewMode } = useRealmMode();
 
   const commands: CommandItem[] = [
-    // Navigation
+    // Citadels / Core Navigation
     {
-      id: 'nav-home',
-      category: 'Navigation',
-      title: 'Home · Overview',
-      detail: 'Overview, system topology & featured work',
-      icon: <Terminal className="w-4 h-4 text-accent dark:text-accent-dark" />,
+      id: 'citadel-realm',
+      category: 'Citadels',
+      title: 'Realm // Sanctum',
+      detail: 'Cinematic landing & realm overview',
+      icon: <Castle className="w-4 h-4 text-[#C5A059]" />,
       action: () => {
         navigate('/');
         onClose();
       },
     },
     {
-      id: 'nav-projects',
-      category: 'Navigation',
-      title: 'Projects · Systems Catalog',
-      detail: 'Curated software systems & architectures',
-      icon: <FolderGit2 className="w-4 h-4 text-accent dark:text-accent-dark" />,
+      id: 'citadel-map',
+      category: 'Citadels',
+      title: 'World Map // Cartography',
+      detail: 'Interactive realm map & 6 citadel waypoints',
+      icon: <MapIcon className="w-4 h-4 text-[#C5A059]" />,
+      action: () => {
+        navigate('/map');
+        onClose();
+      },
+    },
+    {
+      id: 'citadel-forge',
+      category: 'Citadels',
+      title: 'The Forge // Projects Workstation',
+      detail: 'Enterprise AI Workspace, ROS 2 robotics & systems',
+      icon: <Hammer className="w-4 h-4 text-[#D97736]" />,
       action: () => {
         navigate('/projects');
         onClose();
       },
     },
     {
-      id: 'nav-engineering',
-      category: 'Navigation',
-      title: 'Engineering · Notebook & Lab',
-      detail: 'Systems, concurrency & networking investigations',
-      icon: <FileCode2 className="w-4 h-4 text-accent dark:text-accent-dark" />,
+      id: 'citadel-library',
+      category: 'Citadels',
+      title: 'Engineering Library // Codices',
+      detail: 'Technical investigations, concurrency & benchmarks',
+      icon: <BookOpen className="w-4 h-4 text-[#C5A059]" />,
       action: () => {
         navigate('/engineering');
         onClose();
       },
     },
     {
-      id: 'nav-about',
-      category: 'Navigation',
-      title: 'About · Profile & Direction',
-      detail: 'Background, disciplines & engineering trajectory',
-      icon: <Sparkles className="w-4 h-4 text-accent dark:text-accent-dark" />,
+      id: 'citadel-inventory',
+      category: 'Citadels',
+      title: 'Engineering Inventory // Arsenal',
+      detail: 'Interactive technology artifact slots & concepts',
+      icon: <LayoutGrid className="w-4 h-4 text-[#8C6D46]" />,
+      action: () => {
+        navigate('/inventory');
+        onClose();
+      },
+    },
+    {
+      id: 'citadel-chamber',
+      category: 'Citadels',
+      title: 'My Chamber // Philosophy',
+      detail: 'Engineer background, VIT Chennai trajectory & principles',
+      icon: <User className="w-4 h-4 text-[#C5A059]" />,
       action: () => {
         navigate('/about');
+        onClose();
+      },
+    },
+    {
+      id: 'citadel-archive',
+      category: 'Citadels',
+      title: 'The Archive // Career Chronology',
+      detail: 'Official resume & verified credentials',
+      icon: <FileText className="w-4 h-4 text-[#8C6D46]" />,
+      action: () => {
+        navigate('/archive');
+        onClose();
+      },
+    },
+    {
+      id: 'citadel-gate',
+      category: 'Citadels',
+      title: 'The Gate // Uplink Protocol',
+      detail: 'Direct contact channels & communication portal',
+      icon: <Radio className="w-4 h-4 text-[#D97736]" />,
+      action: () => {
+        navigate('/contact');
         onClose();
       },
     },
@@ -97,7 +143,7 @@ export function CommandPalette({ isOpen, onClose }: CommandPaletteProps) {
       category: 'Projects' as const,
       title: project.title,
       detail: `${project.category} · ${project.technologies.slice(0, 3).join(', ')}`,
-      icon: <FolderGit2 className="w-4 h-4 text-emerald-500" />,
+      icon: <FolderGit2 className="w-4 h-4 text-[#C5A059]" />,
       action: () => {
         navigate(`/projects/${project.slug}`);
         onClose();
@@ -107,81 +153,39 @@ export function CommandPalette({ isOpen, onClose }: CommandPaletteProps) {
     // Engineering Notes Quick Jump
     ...ENGINEERING_ENTRIES.map((entry) => ({
       id: `eng-${entry.slug}`,
-      category: 'Engineering' as const,
+      category: 'Codices' as const,
       title: entry.title,
       detail: `${entry.category} · ${entry.status}`,
-      icon: <FileCode2 className="w-4 h-4 text-sky-500" />,
+      icon: <FileCode2 className="w-4 h-4 text-[#8C6D46]" />,
       action: () => {
         navigate(`/engineering/${entry.slug}`);
         onClose();
       },
     })),
 
-    // Theme Toggle
+    // View Mode Toggle
     {
-      id: 'pref-theme',
-      category: 'Preferences',
-      title: `Switch to ${theme === 'dark' ? 'Light' : 'Dark'} Mode`,
-      detail: 'Toggle system color scheme',
-      icon:
-        theme === 'dark' ? (
-          <Sun className="w-4 h-4 text-amber-400" />
-        ) : (
-          <Moon className="w-4 h-4 text-slate-700" />
-        ),
+      id: 'pref-mode',
+      category: 'Settings',
+      title: viewMode === 'realm' ? 'Switch to Spec Mode' : 'Switch to Realm Mode',
+      detail: viewMode === 'realm' ? 'Recruiter-focused technical data sheet' : 'Atmospheric Norse realm view',
+      icon: <span className="font-mono text-sm text-[#C5A059]">ᛟ</span>,
       action: () => {
-        toggleTheme();
-        onClose();
-      },
-    },
-
-    // External Links
-    {
-      id: 'ext-resume',
-      category: 'External',
-      title: 'View Resume (PDF)',
-      detail: 'Open centralized resume asset',
-      icon: <ExternalLink className="w-4 h-4 text-accent" />,
-      action: () => {
-        window.open(SITE_CONFIG.resumeUrl, '_blank');
-        onClose();
-      },
-    },
-    {
-      id: 'ext-github',
-      category: 'External',
-      title: 'GitHub Profile',
-      detail: 'github.com/narainram18',
-      icon: <ExternalLink className="w-4 h-4 text-accent" />,
-      action: () => {
-        window.open(SITE_CONFIG.githubUrl, '_blank');
-        onClose();
-      },
-    },
-    {
-      id: 'ext-linkedin',
-      category: 'External',
-      title: 'LinkedIn Profile',
-      detail: 'linkedin.com/in/narain-ram-207060290',
-      icon: <ExternalLink className="w-4 h-4 text-accent" />,
-      action: () => {
-        window.open(SITE_CONFIG.linkedinUrl, '_blank');
+        toggleViewMode();
         onClose();
       },
     },
   ];
 
-  const filteredCommands = commands.filter((cmd) => {
-    const q = query.toLowerCase().trim();
-    if (!q) return true;
-    return (
-      cmd.title.toLowerCase().includes(q) ||
-      (cmd.detail && cmd.detail.toLowerCase().includes(q)) ||
-      cmd.category.toLowerCase().includes(q)
-    );
-  });
+  const filteredCommands = query
+    ? commands.filter(
+        (cmd) =>
+          cmd.title.toLowerCase().includes(query.toLowerCase()) ||
+          cmd.category.toLowerCase().includes(query.toLowerCase()) ||
+          (cmd.detail && cmd.detail.toLowerCase().includes(query.toLowerCase()))
+      )
+    : commands;
 
-  // Focus input upon open
   useEffect(() => {
     if (isOpen) {
       setQuery('');
@@ -190,11 +194,10 @@ export function CommandPalette({ isOpen, onClose }: CommandPaletteProps) {
     }
   }, [isOpen]);
 
-  // Global keydown listener for palette navigation
   useEffect(() => {
-    if (!isOpen) return;
-
     const handleKeyDown = (e: KeyboardEvent) => {
+      if (!isOpen) return;
+
       if (e.key === 'Escape') {
         onClose();
       } else if (e.key === 'ArrowDown') {
@@ -223,19 +226,22 @@ export function CommandPalette({ isOpen, onClose }: CommandPaletteProps) {
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-start justify-center pt-20 px-4 bg-black/60 dark:bg-black/75 backdrop-blur-sm animate-in fade-in duration-150"
+      className="fixed inset-0 z-50 flex items-start justify-center pt-20 px-4 bg-black/80 backdrop-blur-md animate-in fade-in duration-150"
       onClick={onClose}
       role="dialog"
       aria-modal="true"
-      aria-label="Command Palette"
+      aria-label="Realm Search Slate"
     >
       <div
-        className="relative w-full max-w-xl rounded-xl glass-modal border border-borderLine-light dark:border-borderLine-dark overflow-hidden shadow-2xl animate-in zoom-in-95 duration-150"
+        className="relative w-full max-w-xl rounded-none bg-[#161B22] border border-[#C5A059] overflow-hidden shadow-[0_24px_60px_rgba(0,0,0,0.9),0_0_24px_rgba(197,160,89,0.2)] animate-in zoom-in-95 duration-150"
         onClick={(e) => e.stopPropagation()}
       >
+        {/* Top Carved Specular Border Highlight */}
+        <div className="h-[2px] w-full bg-gradient-to-r from-[#8C6D46] via-[#C5A059] to-[#8C6D46]" />
+
         {/* Search Input Bar */}
-        <div className="flex items-center gap-3 px-4 py-3.5 border-b border-borderLine-subtleLight dark:border-borderLine-subtleDark">
-          <Search className="w-4 h-4 text-ink-muted dark:text-ink-mutedDark shrink-0" />
+        <div className="flex items-center gap-3 px-4 py-3.5 border-b border-[#272A30] bg-[#111319]">
+          <Search className="w-4 h-4 text-[#C5A059] shrink-0" />
           <input
             ref={inputRef}
             type="text"
@@ -244,16 +250,16 @@ export function CommandPalette({ isOpen, onClose }: CommandPaletteProps) {
               setQuery(e.target.value);
               setSelectedIndex(0);
             }}
-            placeholder="Type a command or search systems..."
-            className="w-full bg-transparent text-sm text-ink-primary dark:text-ink-primaryDark placeholder:text-ink-muted dark:placeholder:text-ink-mutedDark focus:outline-none font-sans"
+            placeholder="Search realm citadels, codices, projects, or technologies..."
+            className="w-full bg-transparent text-sm text-[#E6DFD5] placeholder:text-[#6E6B65] focus:outline-none font-sans"
           />
-          <kbd className="hidden sm:inline-flex items-center gap-0.5 px-1.5 py-0.5 text-[10px] font-mono text-ink-muted dark:text-ink-mutedDark rounded border border-borderLine-light dark:border-borderLine-dark bg-surface-elevatedLight/50 dark:bg-surface-elevatedDark/50">
+          <kbd className="hidden sm:inline-flex items-center gap-0.5 px-1.5 py-0.5 text-[9px] font-mono text-[#9A8F80] rounded bg-[#1D2025] border border-[#272A30]">
             ESC
           </kbd>
           <button
             onClick={onClose}
             aria-label="Close Command Palette"
-            className="p-1 rounded text-ink-muted hover:text-ink-primary dark:hover:text-ink-primaryDark transition-colors"
+            className="p-1 rounded text-[#9A8F80] hover:text-[#E6DFD5] transition-colors"
           >
             <X className="w-4 h-4" />
           </button>
@@ -262,8 +268,8 @@ export function CommandPalette({ isOpen, onClose }: CommandPaletteProps) {
         {/* Results List */}
         <div className="max-h-[360px] overflow-y-auto p-2 space-y-1 font-sans text-xs">
           {filteredCommands.length === 0 ? (
-            <div className="py-8 text-center text-ink-muted dark:text-ink-mutedDark font-mono text-xs">
-              No matching commands or systems found for "{query}".
+            <div className="py-8 text-center text-[#6E6B65] font-mono text-xs">
+              No matching citadels or codices found for "{query}".
             </div>
           ) : (
             filteredCommands.map((cmd, idx) => {
@@ -274,10 +280,10 @@ export function CommandPalette({ isOpen, onClose }: CommandPaletteProps) {
                   key={cmd.id}
                   onClick={() => cmd.action()}
                   onMouseEnter={() => setSelectedIndex(idx)}
-                  className={`flex items-center justify-between px-3 py-2.5 rounded-lg cursor-pointer transition-colors ${
+                  className={`flex items-center justify-between px-3 py-2.5 cursor-pointer transition-colors ${
                     isSelected
-                      ? 'bg-accent/10 dark:bg-accent-dark/15 text-ink-primary dark:text-ink-primaryDark'
-                      : 'text-ink-secondary dark:text-ink-secondaryDark hover:bg-surface-elevatedLight/50 dark:hover:bg-surface-elevatedDark/50'
+                      ? 'bg-[#1D2025] border-l-2 border-[#C5A059] text-[#E6DFD5]'
+                      : 'text-[#9A8F80] hover:bg-[#1D2025]/50 border-l-2 border-transparent'
                   }`}
                 >
                   <div className="flex items-center gap-3 truncate">
@@ -286,14 +292,14 @@ export function CommandPalette({ isOpen, onClose }: CommandPaletteProps) {
                       <div
                         className={`text-xs font-medium truncate ${
                           isSelected
-                            ? 'text-accent dark:text-accent-dark font-semibold'
-                            : 'text-ink-primary dark:text-ink-primaryDark'
+                            ? 'text-[#C5A059] font-semibold'
+                            : 'text-[#E6DFD5]'
                         }`}
                       >
                         {cmd.title}
                       </div>
                       {cmd.detail && (
-                        <div className="text-[10px] text-ink-muted dark:text-ink-mutedDark truncate font-mono">
+                        <div className="text-[10px] text-[#9A8F80] truncate font-mono">
                           {cmd.detail}
                         </div>
                       )}
@@ -301,11 +307,11 @@ export function CommandPalette({ isOpen, onClose }: CommandPaletteProps) {
                   </div>
 
                   <div className="flex items-center gap-2 shrink-0 ml-2">
-                    <span className="font-mono text-[9px] px-1.5 py-0.5 rounded border border-borderLine-light dark:border-borderLine-dark text-ink-muted dark:text-ink-mutedDark">
+                    <span className="font-mono text-[9px] px-1.5 py-0.5 rounded bg-[#0B0E13] border border-[#272A30] text-[#9A8F80]">
                       {cmd.category}
                     </span>
                     {isSelected && (
-                      <ArrowRight className="w-3.5 h-3.5 text-accent dark:text-accent-dark" />
+                      <ArrowRight className="w-3.5 h-3.5 text-[#C5A059]" />
                     )}
                   </div>
                 </div>
@@ -315,13 +321,13 @@ export function CommandPalette({ isOpen, onClose }: CommandPaletteProps) {
         </div>
 
         {/* Footer Shortcut Legend */}
-        <div className="px-4 py-2 border-t border-borderLine-subtleLight dark:border-borderLine-subtleDark bg-surface-elevatedLight/40 dark:bg-surface-elevatedDark/40 flex items-center justify-between font-mono text-[10px] text-ink-muted dark:text-ink-mutedDark">
+        <div className="px-4 py-2 border-t border-[#272A30] bg-[#0B0E13] flex items-center justify-between font-mono text-[10px] text-[#6E6B65]">
           <div className="flex items-center gap-3">
             <span>↑↓ Navigate</span>
-            <span>↵ Select</span>
+            <span>↵ Enter</span>
             <span>ESC Close</span>
           </div>
-          <span>Command Palette</span>
+          <span className="text-[#8C6D46]">REALM DISPATCH</span>
         </div>
       </div>
     </div>

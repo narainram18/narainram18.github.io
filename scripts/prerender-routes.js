@@ -17,6 +17,26 @@ const baseHtml = fs.readFileSync(indexHtmlPath, 'utf8');
 
 const routes = [
   {
+    path: 'map',
+    title: 'World Map // Cartography — Narain Ram R M',
+    description: 'Interactive cartography and citadel navigation across the Norse engineering realm of Narain Ram R M.',
+  },
+  {
+    path: 'inventory',
+    title: 'Engineering Inventory // Arsenal — Narain Ram R M',
+    description: 'Interactive technology artifact slots and production systems arsenal of Narain Ram R M.',
+  },
+  {
+    path: 'archive',
+    title: 'The Archive // Career Chronology — Narain Ram R M',
+    description: 'Official engineering credentials, curriculum vitae, and verified career chronology of Narain Ram R M.',
+  },
+  {
+    path: 'contact',
+    title: 'The Gate // Uplink Protocol — Narain Ram R M',
+    description: 'Direct communication channels and dispatch protocol to contact Narain Ram R M.',
+  },
+  {
     path: 'about',
     title: 'About — Narain Ram R M',
     description: 'Background, engineering philosophy, technical capability map, credentials, and active laboratory focus of Narain Ram R M, Software Engineer.',
@@ -42,7 +62,7 @@ const routes = [
     description: 'An autonomous mobile robot simulation built on ROS and Gazebo utilizing costmap inflation and Dynamic Window Approach (DWA) local trajectory planning.',
   },
   {
-    path: 'projects/vessel-api-system',
+    path: 'projects/enterprise-vessel-api',
     title: 'Enterprise Vessel API System — Narain Ram R M',
     description: 'A high-performance enterprise data retrieval service engineered with Spring Boot 3, PostgreSQL, and Spring Security.',
   },
@@ -72,14 +92,14 @@ const routes = [
     description: 'Comparing protocol overhead, reconnect mechanics, and client buffer management between SSE and WebSockets for generative AI token streaming.',
   },
   {
-    path: 'engineering/tcp-congestion-socket-buffer',
-    title: 'TCP Socket Buffer Sizing & Congestion Window Scaling — Narain Ram R M',
-    description: 'Benchmarking the impact of TCP receive and send buffer sizing on stream throughput under synthetic latency and packet jitter.',
+    path: 'engineering/tcp-congestion-control-dynamics',
+    title: 'Packet Latency & TCP Congestion Dynamics under Synthetic Throttling — Narain Ram R M',
+    description: 'Planned laboratory investigation analyzing TCP window scaling, slow-start behavior, and socket buffer sizes over constrained network topologies.',
   },
   {
-    path: 'engineering/mmap-vs-buffered-io',
-    title: 'Memory-Mapped Files (mmap) vs Buffered POSIX I/O — Narain Ram R M',
-    description: 'Comparative latency and page fault benchmark comparing mmap against read/write system calls for high-throughput binary logs.',
+    path: 'engineering/mmap-vs-posix-io-benchmarks',
+    title: 'Zero-Copy Memory-Mapped Files vs POSIX Read/Write for Large File Traversal — Narain Ram R M',
+    description: 'Planned benchmark comparing mmap kernel page faults against buffered sequential read system calls in C++ during concurrent disk inspection.',
   },
 ];
 

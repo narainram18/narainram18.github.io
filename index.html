@@ -30,10 +30,14 @@
     <meta name="twitter:description" content="Software Engineer specializing in Systems, Networking, Robotics, and Applied AI. Technical architecture, case studies, and engineering notes." />
     <meta name="twitter:image" content="https://narainram18.github.io/og-image.svg" />
 
-    <!-- Fonts -->
+    <!-- Preload Primary Above-The-Fold Assets for Fast LCP -->
+    <link rel="preload" as="image" href="/assets/realm/hero-fortress-768.avif" imagesrcset="/assets/realm/hero-fortress-400.avif 400w, /assets/realm/hero-fortress-768.avif 768w" imagesizes="(max-width: 640px) 400px, 768px" type="image/avif" fetchpriority="high">
+    <link rel="preload" as="image" href="/assets/realm/crest-96.avif" type="image/avif">
+
+    <!-- Fonts (Optimized for used weights with display=swap) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&family=Noto+Serif:wght@600;700&display=swap" rel="stylesheet">
 
     <!-- Anti-FOUC Theme Script -->
     <script>
